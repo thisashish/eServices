@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Logo from './ItemDisplay';
 import './css/Home.css';
 
+
 const Home = () => {
   
   const navigate = useNavigate();
@@ -35,6 +36,9 @@ const Home = () => {
     <>
     
     <div>
+    
+        
+      
       
       <h1>Logo Gallery</h1>
       <Logo

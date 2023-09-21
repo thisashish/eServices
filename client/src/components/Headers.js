@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import {NavLink} from "react-router-dom"
 import React from 'react';
 import './Header.css'; 
+import Auth from './Auth';
 
 
 const Headers = () => {
@@ -19,6 +20,9 @@ const Headers = () => {
             <li><a href="/contact">Contact Us</a></li>
           </ul>
         </div>
+       
+        <Auth /> 
+      
       </nav>
     );
   };
