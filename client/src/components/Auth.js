@@ -1,32 +1,27 @@
-// Auth.js
-// import React, { useState, useEffect } from 'react';
-// import firebase from 'firebase/app';
-// import 'firebase/auth';
-// Auth.js
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/compat/app'; // Import firebase/app (compat version)
 import 'firebase/compat/auth'; // Import firebase/auth (compat version)
 import './css/Auth.css';
+import axios from 'axios';
 
 const Auth = () => {
   const [user, setUser] = useState(null);
 
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
+  // Initialize Firebase with the configuration obtained from Firebase Console
+  const firebaseConfig = {
+    apiKey: "AIzaSyCufC-gaBBCcsuUjPk6fy3hPdj12rg4w8o",
+    authDomain: "clone-b83c8.firebaseapp.com",
+    projectId: "clone-b83c8",
+    storageBucket: "clone-b83c8.appspot.com",
+    messagingSenderId: "1013939311180",
+    appId: "1:1013939311180:web:eec864135798d8e32edae9",
+    measurementId: "G-15QDFN74TZ"
+  };
 
   useEffect(() => {
-    // Initialize Firebase with the configuration obtained from Firebase Console
-    const firebaseConfig = {
-        apiKey: "AIzaSyCufC-gaBBCcsuUjPk6fy3hPdj12rg4w8o",
-        authDomain: "clone-b83c8.firebaseapp.com",
-        projectId: "clone-b83c8",
-        storageBucket: "clone-b83c8.appspot.com",
-        messagingSenderId: "1013939311180",
-        appId: "1:1013939311180:web:eec864135798d8e32edae9",
-        measurementId: "G-15QDFN74TZ"
-      };
-
-    firebase.initializeApp(firebaseConfig);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
 
     // Set up Firebase Auth State Listener
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
@@ -39,10 +34,31 @@ const Auth = () => {
     };
   }, []);
 
+  // Sign in the user and get the ID token
+  async function signInWithFirebase() {
+    try {
+      // Replace these with actual email and password values
+      const email = 'ashish.vishwakarma1267@gmail.com';
+      const password = '';
+      
+      const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+      const user = userCredential.user;
+      const idToken = await user.getIdToken();
+      return idToken;
+    } catch (error) {
+      console.error("Error signing in:", error);
+      throw error;
+    }
+  }
+
   const handleSignInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     try {
       await firebase.auth().signInWithPopup(provider);
+      const idToken = await signInWithFirebase();
+      const response = await axios.post('/auth/login', { idToken: idToken });
+      const userData = response.data.user;
+      setUser(userData);
     } catch (error) {
       console.error(error.message);
     }
@@ -74,6 +90,7 @@ const Auth = () => {
       )}
     </div>
   );
+  console.log('xxxxxxxxxxxxxxxxxxxxxxx');
 };
 
 export default Auth;
