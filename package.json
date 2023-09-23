@@ -4,7 +4,7 @@
   "description": "created two folder client and server , this is a webiste that will live soon .\r  git push -u origin main",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm ci && npm run build"
   },
   "keywords": [],
   "author": "",
