@@ -5,6 +5,11 @@ const jwt = require("jsonwebtoken");
 const SECRECT_KEY = "abcdefghijklmnop"
 
 const userSchema = new mongoose.Schema({
+    uid: {
+        type: String,
+        unique: true, // Ensure each user has a unique UID
+        required: true,
+      },
     fname: {
         type: String,
         required: true,
