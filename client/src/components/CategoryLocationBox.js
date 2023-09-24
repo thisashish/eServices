@@ -1,10 +1,16 @@
 // CategoryLocationBox.js
-import React from 'react';
-import './css/CategoryLocationBox.css';
+import React from "react";
+import "./css/CategoryLocationBox.css";
+import { locations } from "../pages/Utils";
 
 const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
-  const categories = ['AC Repair', 'Laptop Repair', 'Mobile Repair', 'Fridge Repair', 'Air Cooler Repair'];
-  const locations = ['Palia Kalan', 'Lakhimpur Kheri', 'Gola'];
+  const categories = [
+    "AC Repair",
+    "Laptop Repair",
+    "Mobile Repair",
+    "Fridge Repair",
+    "Air Cooler Repair",
+  ];
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
@@ -21,22 +27,14 @@ const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
       {/* Category box */}
       <div className="category-box">
         <label htmlFor="category-select">Category:</label>
-        <select id="category-select" className="category-select" onChange={handleCategoryChange}>
+        <select
+          id="category-select"
+          className="category-select"
+          onChange={handleCategoryChange}
+        >
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Location box */}
-      <div className="location-box">
-        <label htmlFor="location-select">Location:</label>
-        <select id="location-select" className="location-select" onChange={handleLocationChange}>
-          {locations.map((location) => (
-            <option key={location} value={location}>
-              {location}
             </option>
           ))}
         </select>

@@ -31,7 +31,6 @@ const App = () => {
   return (
    <>
       <Headers />
-      {/* <div className="App-header"><SearchBar /></div> */}
       <div className="App">
       <header className="App-header">
         {/* Render the CategoryLocationBox component */}
@@ -46,15 +45,16 @@ const App = () => {
       
      
     <Routes>
-        <Route path='/' element={<Login />} />
-        <Route path='/register' element={<Register />} />
+        <Route path='/' element={<Home />} />
+        {/* <Route path='/register' element={<Register />} /> */}
        
         <Route path='/user/otp' element={<Otp />} />
-        <Route path="/home"  element={<Home />} />
-        
-        <Route path="/Airconditioner" component={<Airconditioner />} />
-        <Route path="/Aircooler" component={<Aircooler />} />
-        <Route path="/Fridge" component={<Fridge />} />
+        <Route path='/:slug' element={<Home/>}/> 
+       <Route path="/"  element={<Home />} />
+{/*         
+       <Route path="/Airconditioner" component={<Airconditioner />} />
+       <Route path="/Aircooler" component={<Aircooler />} />
+       <Route path="/Fridge" component={<Fridge />} />  */}
         <Route path='*' element={<Error />} />
         </Routes>
     </>
