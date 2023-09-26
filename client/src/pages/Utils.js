@@ -1,1 +1,2 @@
-export const locations = ["palia", "lakhimpur", "gola"]
+export const locations = ["palia", "lakhimpur", "gola"];
+ 
