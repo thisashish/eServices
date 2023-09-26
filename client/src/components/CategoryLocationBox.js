@@ -1,14 +1,30 @@
 // CategoryLocationBox.js
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './css/CategoryLocationBox.css';
 
+import React from "react";
+import "./css/CategoryLocationBox.css";
+import { locations } from "../pages/Utils";
+
+
 
 const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
+
   const categories = ['AC Repair', 'Laptop Repair', 'Mobile Repair', 'Fridge Repair', 'Air Cooler Repair'];
   const locations = ['Palia Kalan', 'Lakhimpur Kheri', 'Gola','Bhira'];
 
   const history = useNavigate();
+
+  const categories = [
+    "AC Repair",
+    "Laptop Repair",
+    "Mobile Repair",
+    "Fridge Repair",
+    "Air Cooler Repair",
+  ];
+
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
@@ -34,8 +50,16 @@ const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
       {/* Category box */}
       <div className="category-box">
         <label htmlFor="category-select">Category:</label>
+
         <select id="category-select" className="category-select" onChange={handleCategoryChange}>
         <option value="">Select a category</option>
+
+        <select
+          id="category-select"
+          className="category-select"
+          onChange={handleCategoryChange}
+        >
+
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -43,6 +67,7 @@ const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
           ))}
         </select>
       </div>
+
 
       {/* Location box */}
       <div className="location-box">
@@ -56,6 +81,8 @@ const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
           ))}
         </select>
       </div>
+
+
     </div>
   );
 };
