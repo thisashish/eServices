@@ -12,7 +12,7 @@ import Aircooler from './components/Category/Aircooler';
 import Fridge from './components/Category/Fridge';
 
 
-import CategoryLocationBox from './components/CategoryLocationBox';
+import {CategorySelector} from './components/CategorySelector';
 
 const App = () => {
 
@@ -33,11 +33,11 @@ const App = () => {
       <Headers />
       <div className="App">
       <header className="App-header">
-        {/* Render the CategoryLocationBox component */}
-        <CategoryLocationBox
+        
+        {/* <CategoryLocationBox
           onCategoryChange={handleCategoryChange}
           onLocationChange={handleLocationChange}
-        />
+        /> */}
         <p>Selected Category: {selectedCategory}</p>
         <p>Selected Location: {selectedLocation}</p>
       </header>
@@ -45,7 +45,7 @@ const App = () => {
       
      
     <Routes>
-        <Route path='/' element={<Home />} />
+        
         {/* <Route path='/register' element={<Register />} /> */}
        
         <Route path='/user/otp' element={<Otp />} />
