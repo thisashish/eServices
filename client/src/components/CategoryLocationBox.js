@@ -17,13 +17,7 @@ const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
 
   const history = useNavigate();
 
-  const categories = [
-    "AC Repair",
-    "Laptop Repair",
-    "Mobile Repair",
-    "Fridge Repair",
-    "Air Cooler Repair",
-  ];
+  
 
 
   const handleCategoryChange = (event) => {
@@ -54,11 +48,8 @@ const CategoryLocationBox = ({ onCategoryChange, onLocationChange }) => {
         <select id="category-select" className="category-select" onChange={handleCategoryChange}>
         <option value="">Select a category</option>
 
-        <select
-          id="category-select"
-          className="category-select"
-          onChange={handleCategoryChange}
-        >
+      
+          
 
           {categories.map((category) => (
             <option key={category} value={category}>
