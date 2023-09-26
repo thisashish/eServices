@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Logo from "./ItemDisplay";
-import "./css/Home.css";
-import { locations } from "./Utils";
-import { CategorySelector } from "../components/CategorySelector";
+import Logo from "../ItemDisplay";
+import "./Home.css";
+import { locations } from "../Utils";
+import { CategorySelector } from "../../components/CategorySelector";
+import { HomeHeader } from "./HomeHeader";
+import { Headers } from "../../components/Headers";
 
 const Home = () => {
   const { slug } = useParams();
@@ -35,7 +37,11 @@ const Home = () => {
 
   return (
     <>
-      <CategorySelector defaultValue={slug}/>
+      <div className="Home_Headers">
+        <Headers />
+      </div>
+      <HomeHeader />
+      <CategorySelector defaultLocation={slug} />
       {locations.includes(slug) ? (
         <div>
           <h1>Logo Gallery</h1>
@@ -91,9 +97,6 @@ const Home = () => {
       )}
     </>
   );
-  const Airconditioner = () => <div>Content for Page 1</div>;
-  const Aircooler = () => <div>Content for Page 2</div>;
-  const Fridge = () => <div>Content for Page 3</div>;
 };
 
 export default Home;

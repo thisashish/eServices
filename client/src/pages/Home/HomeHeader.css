@@ -1,0 +1,61 @@
+/* HomeHeader.css */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .slider-image {
+    width: 100%;
+    height: 450px;
+    flex-shrink: 0;
+    opacity: 40%;
+  }
+  
+  .slider-image.active {
+    transform: translateX(0);
+  }
+  
+  .slider-image.next {
+    transform: translateX(100%);
+  }
+  
+  .slider-image.prev {
+    transform: translateX(-100%);
+  }
+  
+  .slider-button {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .slider-button.left {
+    left: 10px;
+  }
+  
+  .slider-button.right {
+    right: 10px;
+  }
+  
+  .slider-button:focus {
+    outline: none;
+  }
+  
+  /* Change button background color on hover */
+  .slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
