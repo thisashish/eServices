@@ -24,6 +24,27 @@ admin.initializeApp({
   const authRoutes = require("./Routes/authRoutes");
 app.use("/auth", authRoutes)
 
+app.get('/api/airconditioner', (req, res) => {
+  // Handle the request for Airconditioner data
+  // Example: You can query a database or serve JSON data
+  const airconditionerData = { name: 'Airconditioner', description: 'Category for Airconditioner' };
+  res.json(airconditionerData);
+});
+
+app.get('/api/aircooler', (req, res) => {
+  // Handle the request for Aircooler data
+  // Example: You can query a database or serve JSON data
+  const aircoolerData = { name: 'Aircooler', description: 'Category for Aircooler' };
+  res.json(aircoolerData);
+});
+
+app.get('/api/fridge', (req, res) => {
+  // Handle the request for Fridge data
+  // Example: You can query a database or serve JSON data
+  const fridgeData = { name: 'Fridge', description: 'Category for Fridge' };
+  res.json(fridgeData);
+});
+
 
 
 // app.post("/", (req,res)=>{console.log(req.body)})
