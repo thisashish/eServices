@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from "./ItemDisplay";
 import "./css/Home.css";
+import { categories } from "./utils1";
 import { locations } from "./Utils";
 import { CategorySelector } from "../components/CategorySelector";
 
@@ -89,6 +90,7 @@ const Home = () => {
       ) : (
         <>Nothing</>
       )}
+
     </>
   );
   const Airconditioner = () => <div>Content for Page 1</div>;
