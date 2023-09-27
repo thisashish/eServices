@@ -79,3 +79,22 @@ h1 {
   left: 30%;
   z-index: 2;
 }
+.Home_Category_Div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+}
+.Home_Category_Div_Img {
+  border-radius: 90%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+.Home_Category {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
