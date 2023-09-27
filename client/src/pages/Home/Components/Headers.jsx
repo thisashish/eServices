@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import Auth from "./Auth";
+import Auth from "../../../components/Auth";
 
 export const Headers = () => {
   return (

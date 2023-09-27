@@ -73,3 +73,9 @@ h1 {
   position: absolute;
   z-index: 1;
 }
+.Home_categoryselector {
+  position: absolute;
+  top: 40%;
+  left: 13%;
+  z-index: 2;
+}

@@ -3,7 +3,6 @@ import {Otp} from "./pages/Otp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Category } from "./pages/Category";
 import { PageNotFound } from "./pages/PageNotFound";
-import {Headers} from "./components/Headers";
 import Home from "./pages/Home/Home";
 
 export const App = () => {

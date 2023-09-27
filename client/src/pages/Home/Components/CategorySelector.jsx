@@ -1,7 +1,7 @@
 import React from "react";
-import { categories, locations } from "../pages/Utils";
+import { categories, locations } from "../Utils";
 
-import "./css/CategoryLocationBox.css";
+import "./CategoryLocationBox.css";
 
 export const CategorySelector = (c) => {
   return (

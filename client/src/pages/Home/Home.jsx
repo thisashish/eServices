@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../ItemDisplay";
 import "./Home.css";
-import { locations } from "../Utils";
-import { CategorySelector } from "../../components/CategorySelector";
-import { HomeHeader } from "./HomeHeader";
-import { Headers } from "../../components/Headers";
+import { locations } from "./Utils";
+import { CategorySelector } from "./Components/CategorySelector";
+import { HomeHeader } from "./Components/HomeHeader";
+import { Headers } from "./Components/Headers";
 
 const Home = () => {
   const { slug } = useParams();
@@ -21,27 +21,17 @@ const Home = () => {
     }
   };
 
-  const items = [
-    process.env.PUBLIC_URL + "/images/air-conditioner.jpg",
-    process.env.PUBLIC_URL + "/images/Air-Cooler.jpg",
-    process.env.PUBLIC_URL + "/images/appliances.png",
-    process.env.PUBLIC_URL + "/images/cctv.jpg",
-
-    process.env.PUBLIC_URL + "/images/fan.jpg",
-    process.env.PUBLIC_URL + "/images/laptop.jpg",
-    process.env.PUBLIC_URL + "/images/Geyser.jpg",
-    process.env.PUBLIC_URL + "/images/desktop.jpg",
-    process.env.PUBLIC_URL + "/images/plumbing.png",
-    process.env.PUBLIC_URL + "/images/Mobile-Phone.jpg",
-  ];
-
   return (
     <>
-      <div className="Home_Headers">
-        <Headers />
+      <div>
+        <div className="Home_Headers">
+          <Headers />
+        </div>
+        <div className="Home_categoryselector">
+          <CategorySelector defaultLocation={slug} />
+        </div>
+        <HomeHeader />
       </div>
-      <HomeHeader />
-      <CategorySelector defaultLocation={slug} />
       {locations.includes(slug) ? (
         <div>
           <h1>Logo Gallery</h1>

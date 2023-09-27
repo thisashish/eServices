@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./HomeHeader.css"; // Import your CSS for styling
+import { images } from "../Utils";
 
 export const HomeHeader = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [
-    process.env.PUBLIC_URL + "/images/air-conditioner.jpg",
-    process.env.PUBLIC_URL + "/images/Air-Cooler.jpg",
-    process.env.PUBLIC_URL + "/images/Air-Cooler.jpg",
-  ]; // Replace with your image paths
 
   const prevImage = () => {
     setCurrentImage((prevIndex) =>
