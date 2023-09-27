@@ -1,6 +1,14 @@
+
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Logo from "./ItemDisplay";
+import "./css/Home.css";
+import { categories } from "./utils1";
+
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
+
 import { locations } from "./Utils";
 import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
@@ -100,6 +108,7 @@ const Home = () => {
       ) : (
         <>Nothing</>
       )}
+
     </>
   );
 };
