@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Logo from "../ItemDisplay";
 import "./Home.css";
 import { locations } from "./Utils";
-import { CategorySelector } from "./Components/CategorySelector";
+import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
 import { Headers } from "./Components/Headers";
 
@@ -28,7 +28,7 @@ const Home = () => {
           <Headers />
         </div>
         <div className="Home_categoryselector">
-          <CategorySelector defaultLocation={slug} />
+          <CategoryLocationSelector defaultLocation={slug} />
         </div>
         <HomeHeader />
       </div>
