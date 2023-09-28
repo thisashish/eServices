@@ -1,13 +1,24 @@
-import React from "react";
+
+
+import React, { useEffect } from "react";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
-
 import { locations } from "./Utils";
 import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
 import { Headers } from "./Components/Headers";
+import axios from "axios";
 
 const Home = () => {
+  useEffect(() => {
+    const res = async () => {
+      const res1 = axios.get("/category");
+      console.log(res1)
+    };
+    res()
+  }, []);
+
   const { slug } = useParams();
   const navigate = useNavigate();
 
@@ -111,7 +122,6 @@ const Home = () => {
       ) : (
         <>Nothing</>
       )}
-
     </>
   );
 };
