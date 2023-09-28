@@ -1,10 +1,3 @@
-
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Logo from "./ItemDisplay";
-import "./css/Home.css";
-import { categories } from "./utils1";
-
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
@@ -59,6 +52,16 @@ const Home = () => {
                   src={process.env.PUBLIC_URL + "/images/Air-Cooler.jpg"}
                 />
                 <p>Aircooler</p>
+              </Link>
+            </div>
+
+            <div className="Home_Category_Div">
+              <Link to={`/${slug}/Aircooler`}>
+                <img
+                  className="Home_Category_Div_Img"
+                  src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
+                />
+                <p>Laptop</p>
               </Link>
             </div>
           </div>
