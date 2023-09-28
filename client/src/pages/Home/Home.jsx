@@ -1,4 +1,7 @@
+
+
 import React, { useEffect } from "react";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
 import { locations } from "./Utils";
@@ -60,6 +63,16 @@ const Home = () => {
                   src={process.env.PUBLIC_URL + "/images/Air-Cooler.jpg"}
                 />
                 <p>Aircooler</p>
+              </Link>
+            </div>
+
+            <div className="Home_Category_Div">
+              <Link to={`/${slug}/Aircooler`}>
+                <img
+                  className="Home_Category_Div_Img"
+                  src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
+                />
+                <p>Laptop</p>
               </Link>
             </div>
           </div>
