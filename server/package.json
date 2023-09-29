@@ -4,9 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "npm ci && npm run build",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",

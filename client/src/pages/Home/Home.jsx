@@ -1,24 +1,14 @@
-import React, { useEffect, useState } from "react";
-
+import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
 import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
 import { Headers } from "./Components/Headers";
-import axios from "axios";
 import { location } from "./Utils";
+import { FindCategory } from "../../Routes/Category/FindCategory";
 
 const Home = () => {
-  const [category, setCategory] = useState([]);
-  useEffect(() => {
-    const res = async () => {
-      const res1 = await axios.get("/category/find/all");
-      setCategory(res1.data);
-      console.log(res1.data);
-    };
-    res();
-  }, []);
-
+  const category = FindCategory();
   const { slug } = useParams();
   const navigate = useNavigate();
 
