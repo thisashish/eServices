@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { locations } from "../Home/Utils";
+import React from "react";
+import { location } from "../Home/Utils";
 
 export const AdminDashboard = () => {
   return (
     <div>
+      <label>Add Category</label>
       <form
         action="http://localhost:4001/admin/add/category"
         method="post"
@@ -15,7 +16,7 @@ export const AdminDashboard = () => {
         <input name="img" type="file" />
         <label>Locations</label>
         <select name="locations" multiple>
-          {locations.map((l) => (
+          {location.map((l) => (
             <option>{l}</option>
           ))}
         </select>

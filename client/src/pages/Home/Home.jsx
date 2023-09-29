@@ -1,22 +1,22 @@
-
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
-import { locations } from "./Utils";
 import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
 import { Headers } from "./Components/Headers";
 import axios from "axios";
+import { location } from "./Utils";
 
 const Home = () => {
+  const [category, setCategory] = useState([]);
   useEffect(() => {
     const res = async () => {
-      const res1 = axios.get("/category");
-      console.log(res1)
+      const res1 = await axios.get("/category/find/all");
+      setCategory(res1.data);
+      console.log(res1.data);
     };
-    res()
+    res();
   }, []);
 
   const { slug } = useParams();
@@ -43,81 +43,27 @@ const Home = () => {
         </div>
         <HomeHeader />
       </div>
-      {locations.includes(slug) ? (
+      {location.includes(slug) ? (
         <div>
           <h1>Categories</h1>
           <div className="Home_Category">
-            <div className="Home_Category_Div">
-              <Link to={`/${slug}/Airconditioner`}>
-                <img
-                  className="Home_Category_Div_Img"
-                  src={process.env.PUBLIC_URL + "/images/air-conditioner.jpg"}
-                />
-                <p>Air Conditioner</p>
-              </Link>
-            </div>
-            <div className="Home_Category_Div">
-              <Link to={`/${slug}/Aircooler`}>
-                <img
-                  className="Home_Category_Div_Img"
-                  src={process.env.PUBLIC_URL + "/images/Air-Cooler.jpg"}
-                />
-                <p>Aircooler</p>
-              </Link>
-            </div>
-
-            <div className="Home_Category_Div">
-              <Link to={`/${slug}/Aircooler`}>
-                <img
-                  className="Home_Category_Div_Img"
-                  src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
-                />
-                <p>Laptop</p>
-              </Link>
-            </div>
+            {category.map((c) =>
+              c.locations.includes(slug) ? (
+                <div className="Home_Category_Div" key={c.name}>
+                  <Link to={`/${slug}/${c.name}`}>
+                    <img
+                      className="Home_Category_Div_Img"
+                      src={c.img}
+                      alt={c.name}
+                    />
+                    <p>{c.name}</p>
+                  </Link>
+                </div>
+              ) : (
+                <></>
+              )
+            )}
           </div>
-          {/* <Logo
-            src={process.env.PUBLIC_URL + "/images/Air-Cooler.jpg"}
-            targetUrl="/Aircooler"
-          />
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/appliances.png"}
-            targetUrl="/Fridge"
-          />
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/cctv.jpg"}
-            targetUrl="/Fridge"
-          />
-
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/fan.jpg"}
-            targetUrl="/Fridge"
-          />
-
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
-            targetUrl="/Fridge"
-          />
-
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
-            targetUrl="/Fridge"
-          />
-
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
-            targetUrl="/Fridge"
-          />
-
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
-            targetUrl="/Fridge"
-          />
-
-          <Logo
-            src={process.env.PUBLIC_URL + "/images/laptop.jpg"}
-            targetUrl="/Fridge"
-          /> */}
         </div>
       ) : (
         <>Nothing</>

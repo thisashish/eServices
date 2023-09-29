@@ -1,4 +1,4 @@
-export const locations = ["palia", "lakhimpur", "gola"];
+export const location = ["palia", "lakhimpur", "gola"];
 export const categories = [
   "AC Repair",
   "Laptop Repair",

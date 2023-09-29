@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { categories, locations } from "../Utils";
+import { categories, location } from "../Utils";
 import "./CategoryLocationSelector.css";
 import "./CategoryLocationBox.css";
 
@@ -47,7 +47,7 @@ export const CategoryLocationSelector = (c) => {
                 className="CategoryLocationSelector_location_div"
                 ref={locationDivRef}
               >
-                {locations.map((location) => (
+                {location.map((location) => (
                   <div
                     key={location}
                     className="CategoryLocationSelector_location_option"

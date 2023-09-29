@@ -6,6 +6,7 @@ require("./db/conn");
 const router = require("./Routes/router");
 const PORT = 4001;
 const path = require("path");
+const CategoryFind = require("./Routes/Category/CategoryFind")
 
 // middleware
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -26,6 +27,8 @@ const authRoutes = require("./Routes/authRoutes");
 const category = require("./models/categorySchema");
 app.use("/auth", authRoutes);
 app.use("/admin/add", Adminuploads);
+app.use("/category/find", CategoryFind)
+app.use
 app.get("/category", async(req,res)=>{
   res.send(category.find())
 })
