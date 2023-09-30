@@ -109,7 +109,7 @@
 
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
-import {registerfunction} from "../services/Apis";
+import {registerfunction} from "../../services/Apis";
 import {useNavigate} from "react-router-dom"
 import "../styles/mix.css"
 

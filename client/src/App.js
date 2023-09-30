@@ -1,10 +1,11 @@
 import React from "react";
-import {Otp} from "./pages/Otp";
+import { Otp } from "./pages/Auth/Otp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Category } from "./pages/Category";
-import { PageNotFound } from "./pages/PageNotFound";
+import { Category } from "./pages/Category/Category";
+import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import { AdminDashboard } from "./pages/AdminDashboard/AdminDashboard";
+import { ServiceProviderForm } from "./pages/ServiceProviderForm/ServiceProviderRegistration";
 
 export const App = () => {
   return (
@@ -17,6 +18,10 @@ export const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route
+            path="/service-provider/register"
+            element={<ServiceProviderForm />}
+          />
         </Routes>
       </>
     </BrowserRouter>
