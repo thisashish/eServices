@@ -1,10 +1,19 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+import { Schema, model } from "mongoose";
+
+import validator from "validator";
+
+const isEmail = validator.isEmail;
+
+// Now you can use isEmail as before
+
+
+import pkg from "bcryptjs";
+const { hash } = pkg;
+import pkg2 from 'jsonwebtoken';
+const { sign } = pkg2;
 const SECRECT_KEY = "abcdefghijklmnop";
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
   uid: {
     type: String,
     unique: true, // Ensure each user has a unique UID
@@ -20,7 +29,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     validate(value) {
-      if (!validator.isEmail(value)) {
+      if (!isEmail(value)) {
         throw new Error("Not Valid Email");
       }
     },
@@ -43,7 +52,7 @@ const userSchema = new mongoose.Schema({
 // hash password
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
-    this.password = await bcrypt.hash(this.password, 12);
+    this.password = await hash(this.password, 12);
   }
 
   next();
@@ -52,7 +61,7 @@ userSchema.pre("save", async function (next) {
 // token generate
 userSchema.methods.generateAuthtoken = async function () {
   try {
-    let newtoken = jwt.sign({ _id: this._id }, SECRECT_KEY, {
+    let newtoken = sign({ _id: this._id }, SECRECT_KEY, {
       expiresIn: "1d",
     });
 
@@ -65,6 +74,6 @@ userSchema.methods.generateAuthtoken = async function () {
 };
 
 // creating model
-const users = new mongoose.model("users", userSchema);
+const users = new model("users", userSchema);
 
-module.exports = users;
+export default users;

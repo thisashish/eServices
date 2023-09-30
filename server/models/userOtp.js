@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
+import { Schema, model } from "mongoose";
+import pkg from "validator";
+const { isEmail } = pkg;
 
-const userOtpSchema = new mongoose.Schema({
+const userOtpSchema = new Schema({
   email: {
     type: String,
     required: true,
     unique: true,
     validate(value) {
-      if (!validator.isEmail(value)) {
+      if (!isEmail(value)) {
         throw new Error("Not Valid Email");
       }
     },
@@ -19,6 +20,6 @@ const userOtpSchema = new mongoose.Schema({
 });
 
 // user otp model
-const userotp = new mongoose.model("userotps", userOtpSchema);
+const userotp = new model("userotps", userOtpSchema);
 
-module.exports = userotp;
+export default userotp;

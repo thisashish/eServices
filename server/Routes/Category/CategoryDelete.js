@@ -1,5 +1,5 @@
-const { Router } = require("express");
-const category = require("../../models/categorySchema");
+import { Router } from "express";
+import category from "../../models/categorySchema.js";
 const router = Router();
 
 router.post("/one/byid", async (req, res) => {
@@ -8,4 +8,4 @@ router.post("/one/byid", async (req, res) => {
   res.status(200).send("Success");
 });
 
-module.exports = router;
+export default router;

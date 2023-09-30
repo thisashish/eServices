@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
+import { Schema, model } from "mongoose";
+import validator from "validator";
 
-const categorySchema = new mongoose.Schema({
+const categorySchema = new Schema({
   name: {
     type: String,
     require: true,
@@ -14,6 +14,6 @@ const categorySchema = new mongoose.Schema({
 });
 
 // category otp model
-const category = new mongoose.model("categorys", categorySchema);
+const category = new model("categorys", categorySchema);
 
-module.exports = category;
+export default category;
