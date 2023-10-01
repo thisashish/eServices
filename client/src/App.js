@@ -6,6 +6,7 @@ import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import { AdminDashboard } from "./pages/AdminDashboard/AdminDashboard";
 import { ServiceProviderForm } from "./pages/ServiceProviderForm/ServiceProviderRegistration";
+import Account  from "./pages/account/Account";
 
 export const App = () => {
   return (
@@ -21,7 +22,9 @@ export const App = () => {
           <Route
             path="/service-provider/register"
             element={<ServiceProviderForm />}
+
           />
+          <Route path="/service-provider/account" element={<Account />} />
         </Routes>
       </>
     </BrowserRouter>
