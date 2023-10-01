@@ -1,0 +1,10 @@
+.ServiceProviderRegistration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ServiceProviderRegistration_input {
+  padding: .8rem;
+  margin: .5rem;
+}

@@ -18,6 +18,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 import CategoryFind from "./Routes/Category/CategoryFind.js";
 import CategoryDelete from "./Routes/Category/CategoryDelete.js";
+import ServiceProviderAdd from "./Routes/ServiceProvider/ServiceProviderAdd.js";
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(json());
@@ -28,6 +29,7 @@ app.use("/auth", authRoutes);
 app.use("/admin/add", Adminuploads);
 app.use("/category/find", CategoryFind);
 app.use("/category/delete", CategoryDelete);
+app.use("/serviceprovider/add", ServiceProviderAdd);
 
 app.get("/category", async (req, res) => {
   res.send(await category.find());
