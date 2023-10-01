@@ -6,4 +6,4 @@ const Laser = () => {
   )
 }
 
-export default Laser
+export default Laser;

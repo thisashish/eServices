@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from '../components/Header';
+import { BrowserRouter, Routes, useParams } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import ProfileUpload from './components/ProfileUpload';
 import Lead from './components/Lead';
 import Laser from './components/Laser';
@@ -10,21 +11,30 @@ import MyEarnings from './components/MyEarnings';
 import MyServices  from './components/MyServices';
 
 
-const account = () => {
-  return (
-    <Router>
-    {/* <Header /> */}
-    <Switch>
-      <Route path="/profile" exact component={ProfileUpload} />
-      <Route path="/lead" exact component={Lead} />
-      <Route path="/laser" exact component={Laser} />
-      <Route path="/payment" exact component={Payment} />
-      <Route path="/myprofile" exact component={MyProfile} />
-      <Route path="/myearnings" exact component={MyEarnings} />
-      <Route path="/myservices" exact component-={MyServices}/>
-    </Switch>
-  </Router>
-  )
+
+
+
+const Account = () => {
+    const { slug } = useParams();
+
+    return (
+      <BrowserRouter>
+    <>
+     
+<Routes>
+<Route path="/account/myearnings" component={MyEarnings} />
+        <Route path="/account/myservices" component={MyServices} />
+        <Route path="/account/payment" component={Payment} />
+        <Route path="/account/profileupload" component={ProfileUpload} />
+        </Routes>
+      
+    </>
+    </BrowserRouter>
+    );
+ 
+  
+   
+     
 }
 
-export default account;
+export default Account;
