@@ -25,6 +25,10 @@ export const App = () => {
 
           />
           <Route path="/service-provider/account" element={<Account />} />
+          <Route path="/account/myearnings" component={MyEarnings} />
+        <Route path="/account/myservices" component={MyServices} />
+        <Route path="/account/payment" component={Payment} />
+        <Route path="/account/profileupload" component={ProfileUpload} />
         </Routes>
       </>
     </BrowserRouter>

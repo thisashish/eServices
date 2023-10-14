@@ -22,10 +22,7 @@ const Account = () => {
     <>
      
 <Routes>
-<Route path="/account/myearnings" component={MyEarnings} />
-        <Route path="/account/myservices" component={MyServices} />
-        <Route path="/account/payment" component={Payment} />
-        <Route path="/account/profileupload" component={ProfileUpload} />
+
         </Routes>
       
     </>
