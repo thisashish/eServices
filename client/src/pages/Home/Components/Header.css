@@ -40,14 +40,39 @@
   transition: color 0.2s;
 }
 
+
 .menu a:hover {
   color: #f5a623; /* Change the color on hover */
 }
 
-/* Media Query for Responsive Navbar */
-@media (max-width: 768px) {
-  .menu ul {
-    flex-direction: column; /* Stack items vertically on smaller screens */
-    gap: 10px;
+
+/* Initial styles for larger screens */
+.menu-items ul {
+  list-style: none;
+}
+
+/* Mobile breakpoint (show the hamburger menu and hide items) */
+@media (max-width: 540px) {
+  .menu-items ul {
+    display: none; /* Hide the items on small screens */
+  }
+
+  .hamburger-button {
+    display: block;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+  }
+
+  .hamburger-menu {
+    display: block; /* Show the hamburger menu on small screens */
   }
 }
+
+
+
