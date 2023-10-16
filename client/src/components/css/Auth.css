@@ -1,5 +1,6 @@
 /* Auth.css */
 .google-sign-in-button {
+    white-space:nowrap;
     background-color: #4285f4; /* Google Blue */
     color: #fff;
     border: none;
