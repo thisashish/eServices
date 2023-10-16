@@ -6,7 +6,7 @@ import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import { AdminDashboard } from "./pages/AdminDashboard/AdminDashboard";
 import { ServiceProviderForm } from "./pages/ServiceProviderForm/ServiceProviderRegistration";
-import Account  from "./pages/account/Account";
+import Account  from "./pages/account/account.jsx";
 
 export const App = () => {
   return (
