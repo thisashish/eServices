@@ -6,7 +6,12 @@ import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import { AdminDashboard } from "./pages/AdminDashboard/AdminDashboard";
 import { ServiceProviderForm } from "./pages/ServiceProviderForm/ServiceProviderRegistration";
-import Account  from "./pages/account/Account";
+import { MyEarnings } from "./pages/Dashboard/MyEarnings";
+import { ProfileUpload } from "./pages/Dashboard/ProfileUpload";
+import { MyServices } from "./pages/Dashboard/MyServices";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
+import Account from "./pages/Dashboard/Account";
+import { Payment } from "./pages/Dashboard/Payment";
 
 export const App = () => {
   return (
@@ -22,9 +27,25 @@ export const App = () => {
           <Route
             path="/service-provider/register"
             element={<ServiceProviderForm />}
-
           />
           <Route path="/service-provider/account" element={<Account />} />
+          <Route
+            path="/service-provider/account/myearnings"
+            element={<MyEarnings />}
+          />
+          <Route
+            path="/service-provider/account/myservices"
+            element={<MyServices />}
+          />
+          <Route
+            path="/service-provider/account/payment"
+            element={<Payment />}
+          />
+          <Route
+            path="/service-provider/account/profileupload"
+            element={<ProfileUpload />}
+          />
+          <Route path="/service-provider/dashboard" element={<Dashboard />} />
         </Routes>
       </>
     </BrowserRouter>
