@@ -16,19 +16,21 @@ export const Headers = () => {
           <li>
             <a href="/home">Home</a>
           </li>
-          <li>
-            <a href="/category">Category</a>
-          </li>
+
           <li>
             <a href="/about">About Us</a>
           </li>
           <li>
+            <a href="/partner">Become a Service Provider</a>
+          </li>
+          <li>
             <a href="/contact">Contact Us</a>
+          </li>
+          <li>
+            <Auth />
           </li>
         </ul>
       </div>
-
-      <Auth />
     </div>
   );
 };
