@@ -90,6 +90,7 @@ export const ServiceProviderForm = () => {
         <ServiceProviderFormOtp data={formState}/>
       ) : (
         <div className="ServiceProviderRegistration">
+         
           <input
             className="ServiceProviderRegistration_input"
             placeholder="Name"
@@ -97,9 +98,9 @@ export const ServiceProviderForm = () => {
           />
           <input
             className="ServiceProviderRegistration_input"
-            placeholder="Adress"
-            onChange={(e) => handleTextChange("adress", e.target.value)}
-          />
+            placeholder="Enter Your Permanent Address / Shop Address"
+            onChange={(e) => handleTextChange("adress", e.target.value)} 
+         required style={{padding:"1.8rem"}} />
           <input
             className="ServiceProviderRegistration_input"
             placeholder="Phone No"
