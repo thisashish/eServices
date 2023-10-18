@@ -89,8 +89,14 @@ export const ServiceProviderForm = () => {
       {showOtpElement ? (
         <ServiceProviderFormOtp data={formState}/>
       ) : (
-        <div className="ServiceProviderRegistration">
+        <div className="ServiceProviderRegistration1">
+          <h1 className="heading">Join Us as a Service-Provider</h1>
+          <img src="./service-provider-registration/pattern-3177414_640.png" alt="service-provider"  />
          
+        <div className="ServiceProviderRegistration">
+
+       
+
           <input
             className="ServiceProviderRegistration_input"
             placeholder="Name"
@@ -151,6 +157,7 @@ export const ServiceProviderForm = () => {
           <button type="submit" onClick={handleSubmit}>
             Submit
           </button>
+        </div>
         </div>
       )}
     </>
