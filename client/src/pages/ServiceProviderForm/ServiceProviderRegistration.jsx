@@ -91,7 +91,7 @@ export const ServiceProviderForm = () => {
       ) : (
         <div className="ServiceProviderRegistration1">
           <h1 className="heading">Join Us as a Service-Provider</h1>
-          <img src="./service-provider-registration/pattern-3177414_640.png" alt="service-provider"  />
+        
          
         <div className="ServiceProviderRegistration">
 
@@ -120,13 +120,13 @@ export const ServiceProviderForm = () => {
           />
           <input
             className="ServiceProviderRegistration_input"
-            placeholder="Pass"
+            placeholder="Password"
             type="password"
             onChange={(e) => handleTextChange("pass", e.target.value)}
           />
           <input
             className="ServiceProviderRegistration_input"
-            placeholder="Confirm Pass"
+            placeholder="Confirm Password"
             type="password"
             onChange={(e) => handleTextChange("confirmpass", e.target.value)}
           />
