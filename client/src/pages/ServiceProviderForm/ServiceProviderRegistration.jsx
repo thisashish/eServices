@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { FindCategory } from "../../Routes/Category/FindCategory";
 import { location } from "../Home/Utils";
 import useReduserfun from "./useReduserfun";
@@ -6,12 +6,18 @@ import { initialState } from "./Utils";
 import axios from "axios";
 import "./ServiceProviderRegistration.css";
 import { ServiceProviderFormOtp } from "./ServiceProviderFormOtp";
+import {ServiceProviderData} from "../../Routes/ServiceProviderData.js"
 
 export const ServiceProviderForm = () => {
   const Category = FindCategory();
   const [formState, dispatch] = useReducer(useReduserfun, initialState);
   const [showOtpElement, setShowOtpElement] = useState(false);
+  const [serviceproviderdata, setServiceproviderdata] = useState([]);
 
+  useEffect(() => {
+    setServiceproviderdata(ServiceProviderData());
+  }, []);
+  console.log(serviceproviderdata);
   const handleTextChange = (name, value) => {
     dispatch({
       type: "Handle Input Change",
@@ -87,77 +93,75 @@ export const ServiceProviderForm = () => {
   return (
     <>
       {showOtpElement ? (
-        <ServiceProviderFormOtp data={formState}/>
+        <ServiceProviderFormOtp data={formState} />
       ) : (
         <div className="ServiceProviderRegistration1">
           <h1 className="heading">Join Us as a Service-Provider</h1>
-        
-         
-        <div className="ServiceProviderRegistration">
 
-       
-
-          <input
-            className="ServiceProviderRegistration_input"
-            placeholder="Name"
-            onChange={(e) => handleTextChange("name", e.target.value)}
-          />
-          <input
-            className="ServiceProviderRegistration_input"
-            placeholder="Enter Your Permanent Address / Shop Address"
-            onChange={(e) => handleTextChange("adress", e.target.value)} 
-         required style={{padding:"1.8rem"}} />
-          <input
-            className="ServiceProviderRegistration_input"
-            placeholder="Phone No"
-            onChange={(e) => handleTextChange("phoneno", e.target.value)}
-          />
-          <input
-            className="ServiceProviderRegistration_input"
-            placeholder="Email"
-            type="email"
-            onChange={(e) => handleTextChange("email", e.target.value)}
-          />
-          <input
-            className="ServiceProviderRegistration_input"
-            placeholder="Password"
-            type="password"
-            onChange={(e) => handleTextChange("pass", e.target.value)}
-          />
-          <input
-            className="ServiceProviderRegistration_input"
-            placeholder="Confirm Password"
-            type="password"
-            onChange={(e) => handleTextChange("confirmpass", e.target.value)}
-          />
-          <select
-            multiple
-            onChange={handleLocationChange}
-            value={formState.location}
-          >
-            <option>Select Location</option>
-            {location.map((l) => (
-              <option key={l} value={l}>
-                {l}
-              </option>
-            ))}
-          </select>
-          <select
-            multiple
-            onChange={handleCategoryChange}
-            value={formState.category}
-          >
-            <option>Select Category</option>
-            {Category.map((c) => (
-              <option key={c.id} value={c.name}>
-                {c.name}
-              </option>
-            ))}
-          </select>
-          <button type="submit" onClick={handleSubmit}>
-            Submit
-          </button>
-        </div>
+          <div className="ServiceProviderRegistration">
+            <input
+              className="ServiceProviderRegistration_input"
+              placeholder="Name"
+              onChange={(e) => handleTextChange("name", e.target.value)}
+            />
+            <input
+              className="ServiceProviderRegistration_input"
+              placeholder="Enter Your Permanent Address / Shop Address"
+              onChange={(e) => handleTextChange("adress", e.target.value)}
+              required
+              style={{ padding: "1.8rem" }}
+            />
+            <input
+              className="ServiceProviderRegistration_input"
+              placeholder="Phone No"
+              onChange={(e) => handleTextChange("phoneno", e.target.value)}
+            />
+            <input
+              className="ServiceProviderRegistration_input"
+              placeholder="Email"
+              type="email"
+              onChange={(e) => handleTextChange("email", e.target.value)}
+            />
+            <input
+              className="ServiceProviderRegistration_input"
+              placeholder="Password"
+              type="password"
+              onChange={(e) => handleTextChange("pass", e.target.value)}
+            />
+            <input
+              className="ServiceProviderRegistration_input"
+              placeholder="Confirm Password"
+              type="password"
+              onChange={(e) => handleTextChange("confirmpass", e.target.value)}
+            />
+            <select
+              multiple
+              onChange={handleLocationChange}
+              value={formState.location}
+            >
+              <option>Select Location</option>
+              {location.map((l) => (
+                <option key={l} value={l}>
+                  {l}
+                </option>
+              ))}
+            </select>
+            <select
+              multiple
+              onChange={handleCategoryChange}
+              value={formState.category}
+            >
+              <option>Select Category</option>
+              {Category.map((c) => (
+                <option key={c.id} value={c.name}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+            <button type="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
         </div>
       )}
     </>

@@ -3,11 +3,14 @@ const router = Router();
 import nodemailer from "nodemailer"; // email config
 import serviceproviderOtp from "../../models/serviceproviderOtp.js";
 import serviceprovider from "../../models/serviceproviderSchema.js";
-const tarnsporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL,
     pass: process.env.PASSWORD,
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
 });
 router.post("/sendotp", async (req, res) => {
@@ -21,17 +24,34 @@ router.post("/sendotp", async (req, res) => {
     subject: "Sending Eamil For Otp Validation",
     text: `OTP:- ${OTP}`,
   };
-  tarnsporter.sendMail(mailOptions, (error, info) => {});
-  if (chackotpexist) {
-    await serviceproviderOtp.updateOne(
-      { _id: chackotpexist._id },
-      { otp: OTP }
-    );
-    res.send("otp send");
-  } else {
-    await serviceproviderOtp.insertMany([{ email: req.body.email, otp: OTP }]);
-    res.send("otp send");
-  }
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error("Error sending email:", error);
+      // Handle the error.
+    } else {
+      if (chackotpexist) {
+        const a = async () => {
+          await serviceproviderOtp.updateOne(
+            { _id: chackotpexist._id },
+            { otp: OTP }
+          );
+          res.send("otp send");
+        };
+        a();
+      } else {
+        const b = async () => {
+          console.log(req.body.email, OTP);
+          await serviceproviderOtp.insertMany([
+            { email: req.body.email, otp: OTP },
+          ]);
+          console.log(await serviceproviderOtp.find());
+          res.send("otp send");
+        };
+        b();
+      }
+    }
+  });
 });
 router.post("/verifyotp", async (req, res) => {
   const foundotp = await serviceproviderOtp.findOne({
