@@ -1,5 +1,9 @@
-import { Router } from "express";
+import express, { Router } from "express";
 const router = Router();
+import cookies from "cookie-parser";
+const app = express();
+app.use(cookies());
+import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer"; // email config
 import serviceproviderOtp from "../../models/serviceproviderOtp.js";
 import serviceprovider from "../../models/serviceproviderSchema.js";
@@ -30,7 +34,7 @@ router.post("/sendotp", async (req, res) => {
       console.error("Error sending email:", error);
       // Handle the error.
     } else {
-      if (chackotpexist) {
+      if (chackotpexist.length !== 0) {
         const a = async () => {
           await serviceproviderOtp.updateOne(
             { _id: chackotpexist._id },
@@ -41,11 +45,9 @@ router.post("/sendotp", async (req, res) => {
         a();
       } else {
         const b = async () => {
-          console.log(req.body.email, OTP);
           await serviceproviderOtp.insertMany([
             { email: req.body.email, otp: OTP },
           ]);
-          console.log(await serviceproviderOtp.find());
           res.send("otp send");
         };
         b();
@@ -58,25 +60,30 @@ router.post("/verifyotp", async (req, res) => {
     email: req.body.formState.email,
   });
   if (foundotp.otp === req.body.otp) {
-    const token = await preuser.generateAuthtoken();
-    const { name, adress, phoneno, email, password, locations, categories } =
-      req.body.formState;
-    const data = {
-      name,
-      adress,
-      phoneno,
-      email,
-      password,
-      locations,
-      categories,
-      token,
-    };
-    await serviceprovider.insertMany([data]);
-
-    res.status(200).json({
-      message: "User Login Succesfully Done",
-      serviceproviderToken: token,
+    var token = jwt.sign(
+      { email: req.body.formstate.email },
+      process.env.JWTKEY
+    );
+    bcrypt.hash(req.body.formState.password, 15, async function (err, hash) {
+      await serviceprovider.insertMany([
+        {
+          name: req.body.formState.name,
+          address: req.body.formState.adress,
+          phoneno: req.body.formState.phoneno,
+          email: req.body.formState.email,
+          password: hash,
+          locations: req.body.formState.locations,
+          categories: req.body.formState.categories,
+          token: token,
+        },
+      ]);
     });
+    const options = {
+      httpOnly: true,
+      expires: new Date(Date.now() + 36000000),
+    };
+    res.cookie("serviceproviderToken", token, options);
+    res.status(200).send("success");
   } else {
     res.send("Wrong OTP");
   }

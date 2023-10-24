@@ -6,7 +6,6 @@ import { initialState } from "./Utils";
 import axios from "axios";
 import "./ServiceProviderRegistration.css";
 import { ServiceProviderFormOtp } from "./ServiceProviderFormOtp";
-import {ServiceProviderData} from "../../Routes/ServiceProviderData.js"
 
 export const ServiceProviderForm = () => {
   const Category = FindCategory();
@@ -15,7 +14,18 @@ export const ServiceProviderForm = () => {
   const [serviceproviderdata, setServiceproviderdata] = useState([]);
 
   useEffect(() => {
-    setServiceproviderdata(ServiceProviderData());
+    const fetchuserdata = async () => {
+      const userdata = await axios.get("/serviceprovider/login/one", {
+        withCredentials: true,
+        headers: {
+          Accept: "application.json",
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+      setServiceproviderdata(userdata.data);
+    };
+    fetchuserdata();
   }, []);
   console.log(serviceproviderdata);
   const handleTextChange = (name, value) => {
