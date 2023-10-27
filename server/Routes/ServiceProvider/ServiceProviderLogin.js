@@ -1,7 +1,9 @@
-import { Router } from "express";
+import express, { Router } from "express";
+import cookies from "cookie-parser";
 const router = Router();
-
-router.post("/data", async (req, res) => {
-  console.log(req.cookie);
+const app = express();
+app.use(cookies());
+router.get("/one", async (req, res) => {
+  console.log(req.cookies.serviceproviderToken);
 });
 export default router;
