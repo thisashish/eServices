@@ -70,6 +70,7 @@ router.post("/verifyotp", async (req, res) => {
       locations,
       categories,
       token,
+      profilephoto: "",
     };
     await serviceprovider.insertMany([data]);
 

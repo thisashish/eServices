@@ -6,10 +6,9 @@ const isEmail = validator.isEmail;
 
 // Now you can use isEmail as before
 
-
 import pkg from "bcryptjs";
 const { hash } = pkg;
-import pkg2 from 'jsonwebtoken';
+import pkg2 from "jsonwebtoken";
 const { sign } = pkg2;
 const SECRECT_KEY = "abcdefghijklmnop";
 
@@ -19,6 +18,7 @@ const userSchema = new Schema({
     unique: true, // Ensure each user has a unique UID
     required: true,
   },
+  profilephoto: { type: String },
   fname: {
     type: String,
     required: true,

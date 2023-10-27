@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const MyEarnings = () => {
+   const MyEarnings = () => {
   return (
-    <div>hi</div>
+    <div>this is earnings</div>
   )
 }
+
+export default MyEarnings;

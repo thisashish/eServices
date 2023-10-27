@@ -6,7 +6,7 @@ import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import { AdminDashboard } from "./pages/AdminDashboard/AdminDashboard";
 import { ServiceProviderForm } from "./pages/ServiceProviderForm/ServiceProviderRegistration";
-import Account  from "./pages/account/account.jsx";
+import {Dashboard}  from "./pages/Dashboard/Dashboard";
 
 export const App = () => {
   return (
@@ -23,7 +23,7 @@ export const App = () => {
             path="/service-provider/register"
             element={<ServiceProviderForm />}
           />
-          <Route path="/service-provider/account" element={<Account />} />
+          <Route path="/service-provider/dashboard" element={<Dashboard />} />
         </Routes>
       </>
     </BrowserRouter>

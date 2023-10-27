@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import validator from "validator";
 
-const categorySchema = new Schema({
+ const categorySchema = new Schema({
   name: {
     type: String,
     require: true,
