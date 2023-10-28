@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Category = () => {
+export const C = () => {
   return (
     <div>Category</div>
   )

@@ -4,14 +4,14 @@ import { location } from "../Home/Utils";
 import useReduserfun from "./useReduserfun";
 import { initialState } from "./Utils";
 import axios from "axios";
-import "./ServiceProviderRegistration.css";
-import { ServiceProviderFormOtp } from "./ServiceProviderFormOtp";
+import "./SPRegistration.css";
+import { SPFormOtp } from "./SPFormOtp";
 
-export const ServiceProviderForm = () => {
+export const SPForm = () => {
   const Category = FindCategory();
   const [formState, dispatch] = useReducer(useReduserfun, initialState);
   const [showOtpElement, setShowOtpElement] = useState(false);
-  const [serviceproviderdata, setServiceproviderdata] = useState([]);
+  const [SPdata, setSPdata] = useState([]);
 
   useEffect(() => {
     const fetchuserdata = async () => {
@@ -23,11 +23,11 @@ export const ServiceProviderForm = () => {
           "Content-Type": "application/json",
         },
       });
-      setServiceproviderdata(userdata.data);
+      setSPdata(userdata.data);
     };
     fetchuserdata();
   }, []);
-  console.log(serviceproviderdata);
+  console.log(SPdata);
   const handleTextChange = (name, value) => {
     dispatch({
       type: "Handle Input Change",
@@ -89,7 +89,7 @@ export const ServiceProviderForm = () => {
 
     // Perform the submit logic if the fields are valid
     try {
-      const res = await axios.post("/serviceprovider/add/sendotp", formState);
+      const res = await axios.post("/SP/add/sendotp", formState);
       if (res.data === "otp send") {
         setShowOtpElement(true);
       }
@@ -103,43 +103,43 @@ export const ServiceProviderForm = () => {
   return (
     <>
       {showOtpElement ? (
-        <ServiceProviderFormOtp data={formState} />
+        <SPFormOtp data={formState} />
       ) : (
-        <div className="ServiceProviderRegistration1">
+        <div className="SPRegistration1">
           <h1 className="heading">Join Us as a Service-Provider</h1>
 
-          <div className="ServiceProviderRegistration">
+          <div className="SPRegistration">
             <input
-              className="ServiceProviderRegistration_input"
+              className="SPRegistration_input"
               placeholder="Name"
               onChange={(e) => handleTextChange("name", e.target.value)}
             />
             <input
-              className="ServiceProviderRegistration_input"
+              className="SPRegistration_input"
               placeholder="Enter Your Permanent Address / Shop Address"
               onChange={(e) => handleTextChange("adress", e.target.value)}
               required
               style={{ padding: "1.8rem" }}
             />
             <input
-              className="ServiceProviderRegistration_input"
+              className="SPRegistration_input"
               placeholder="Phone No"
               onChange={(e) => handleTextChange("phoneno", e.target.value)}
             />
             <input
-              className="ServiceProviderRegistration_input"
+              className="SPRegistration_input"
               placeholder="Email"
               type="email"
               onChange={(e) => handleTextChange("email", e.target.value)}
             />
             <input
-              className="ServiceProviderRegistration_input"
+              className="SPRegistration_input"
               placeholder="Password"
               type="password"
               onChange={(e) => handleTextChange("pass", e.target.value)}
             />
             <input
-              className="ServiceProviderRegistration_input"
+              className="SPRegistration_input"
               placeholder="Confirm Password"
               type="password"
               onChange={(e) => handleTextChange("confirmpass", e.target.value)}

@@ -4,10 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { C } from "./pages/C/C";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
-import { ADashboard } from "./src/pages/AdminDashboard/ADashboard";
+import { AD } from "./pages/AD/AD";
 import { SPForm } from "./pages/SPForm/SPRegistration";
-import { Dashboard } from "./pages/SPD/Dashboard";
-
+import { D } from "./pages/SPD/D";
 export const App = () => {
   return (
     <BrowserRouter>
@@ -18,9 +17,9 @@ export const App = () => {
           <Route path="/:slug/:slug" element={<C />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
-          <Route path="/admin/dashboard" element={<ADashboard />} />
+          <Route path="/admin/dashboard" element={<AD />} />
           <Route path="/service-provider/register" element={<SPForm />} />
-          <Route path="/service-provider/dashboard" element={<Dashboard />} />
+          <Route path="/service-provider/dashboard" element={<D />} />
         </Routes>
       </>
     </BrowserRouter>

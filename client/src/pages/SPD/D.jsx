@@ -10,7 +10,7 @@ import { PartnerProfile } from "./PartnerProfile";
 import { ShowProfile } from "./ShowProfile";
 import { SideMenu } from "./SideMenu";
 
-export const Dashboard = () => {
+export const D = () => {
   const [selectedService, setSelectedService] = useState(null);
 
   const handleServiceClick = (service) => {

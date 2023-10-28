@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-export const ServiceProviderFormOtp = (c) => {
+export const SPFormOtp = (c) => {
   const [otp, setOtp] = useState("");
   const handleSubmit = async () => {
     const res = await axios.post("/serviceprovider/add/verifyotp", {
