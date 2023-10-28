@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { FindCategory } from "../../API/Category/FindCategory";
+import { FindCategory } from "../../API/C/FindC";
 import { location } from "../Home/Utils";
 import useReduserfun from "./useReduserfun";
 import { initialState } from "./Utils";

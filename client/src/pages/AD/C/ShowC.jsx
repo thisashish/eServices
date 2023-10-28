@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { FindCategory } from "../../../API/Category/FindCategory";
-import { DeleteCategory } from "../../../API/Category/DeleteCategory";
+import { FindC } from "../../../API/C/FindC";
+import { DeleteC } from "../../../API/C/DeleteC";
 
-export const ShowCategory = () => {
-  const category = FindCategory();
+export const ShowC = () => {
+  const c = FindC();
   return (
     <div>
       <table>
@@ -16,7 +16,7 @@ export const ShowCategory = () => {
           </tr>
         </thead>
         <tbody>
-          {category.map((c, index) => (
+          {c.map((c, index) => (
             <tr key={index}>
               <td>{c.name}</td>
               <td>
@@ -34,7 +34,7 @@ export const ShowCategory = () => {
                 </ul>
               </td>
               <td>
-                <button onClick={() => DeleteCategory(c._id)}>Delete</button>
+                <button onClick={() => DeleteC(c._id)}>Delete</button>
               </td>
             </tr>
           ))}

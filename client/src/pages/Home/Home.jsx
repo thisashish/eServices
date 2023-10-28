@@ -5,7 +5,7 @@ import { CategoryLocationSelector } from "./Components/CategoryLocationSelector"
 import { HomeHeader } from "./Components/HomeHeader";
 import { Headers } from "./Components/Headers";
 import { location } from "./Utils";
-import { FindCategory } from "../../API/Category/FindCategory";
+import { FindCategory } from "../../API/C/FindC";
 
 const Home = () => {
   const category = FindCategory();

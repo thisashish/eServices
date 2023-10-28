@@ -1,14 +1,14 @@
 import React from "react";
-import { AddCategory } from "./C/AddCategory";
-import { ShowCategory } from "./C/ShowCategory";
-import ShowServiceProvider from "./C/ShowServiceProvider";
+import { AddC } from "./C/AddC";
+import { ShowC } from "./C/ShowC";
+import ShowSP from "./C/ShowSP";
 
 export const AD = () => {
   return (
     <div>
-      <AddCategory />
-      <ShowCategory/>
-      <ShowServiceProvider/>
+      <AddC />
+      <ShowC/>
+      <ShowSP/>
     </div>
   );
 };

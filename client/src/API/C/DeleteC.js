@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const DeleteCategory = async (c) => {
+export const DeleteC = async (c) => {
   const res1 = await axios.post(
-    "http://localhost:4001/category/delete/one/byid",
+    "http://localhost:4001/C/delete/one/byid",
     { id: c }
   );
   if (res1.status === 200) {

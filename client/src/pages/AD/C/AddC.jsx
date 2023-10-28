@@ -1,12 +1,12 @@
 import React from "react";
 import { location } from "../../Home/Utils";
 
-export const AddCategory = () => {
+export const AddC = () => {
   return (
     <div>
       <h1>Add Category</h1>
       <form
-        action="http://localhost:4001/admin/add/category"
+        action="http://localhost:4001/A/add/C"
         method="post"
         enctype="multipart/form-data"
       >

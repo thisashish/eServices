@@ -1,12 +1,19 @@
+//imp
+
+////pkg
 import React from "react";
-import { Otp } from "./pages/UAuth/Otp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+////file
+import { Otp } from "./pages/UAuth/Otp";
 import { C } from "./pages/C/C";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
 import { AD } from "./pages/AD/AD";
 import { SPForm } from "./pages/SPForm/SPRegistration";
 import { D } from "./pages/SPD/D";
+
+//code
 export const App = () => {
   return (
     <BrowserRouter>
