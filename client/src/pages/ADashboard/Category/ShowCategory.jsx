@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FindCategory } from "../../../Routes/Category/FindCategory";
-import { DeleteCategory } from "../../../Routes/Category/DeleteCategory";
+import { FindCategory } from "../../../API/Category/FindCategory";
+import { DeleteCategory } from "../../../API/Category/DeleteCategory";
 
 export const ShowCategory = () => {
   const category = FindCategory();

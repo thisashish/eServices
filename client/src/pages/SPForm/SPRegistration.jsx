@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { FindCategory } from "../../Routes/Category/FindCategory";
+import { FindCategory } from "../../API/Category/FindCategory";
 import { location } from "../Home/Utils";
 import useReduserfun from "./useReduserfun";
 import { initialState } from "./Utils";
@@ -15,7 +15,7 @@ export const ServiceProviderForm = () => {
 
   useEffect(() => {
     const fetchuserdata = async () => {
-      const userdata = await axios.get("/serviceprovider/login/one", {
+      const userdata = await axios.get("/SP/login/one", {
         withCredentials: true,
         headers: {
           Accept: "application.json",

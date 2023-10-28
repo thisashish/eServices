@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FindProfile } from "../../../src/Routes/Profile/FindProfile";
+import { FindProfile } from "../../API/Profile/FindProfile";
 // import { DeleteProfile } from "../../../src/Routes/Profile/DeleteProfile";
 
 export const ShowProfile = () => {

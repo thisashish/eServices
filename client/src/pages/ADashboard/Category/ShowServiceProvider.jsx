@@ -1,5 +1,5 @@
 import React from "react";
-import { ServiceProviderFindall } from "../../../Routes/ServiceProvider/ServiceProviderFind";
+import { ServiceProviderFindall } from "../../../API/ServiceProvider/ServiceProviderFind";
 
 const ShowServiceProvider = () => {
   console.log(ServiceProviderFindall());

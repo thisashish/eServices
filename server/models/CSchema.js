@@ -13,6 +13,6 @@ const CSchema = new Schema({
 });
 
 // category otp model
-const C = new model("categorys", CSchema);
+const C = new model("Cs", CSchema);
 
 export default C;

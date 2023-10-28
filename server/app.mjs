@@ -37,7 +37,7 @@ app.use(router);
 app.use(cookies());
 
 ////routes
-app.use("/user", URoutes);
+app.use("/U", URoutes);
 app.use("/C", CRoutes);
 app.use("/service/provider", SPDashboard);
 app.use("/C/find", CFind);

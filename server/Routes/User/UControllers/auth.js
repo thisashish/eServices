@@ -1,5 +1,5 @@
-import users from "../../../models/USchema.js";
-import userotp from "../../../models/UOtp.js";
+import Us from "../../../models/USchema.js";
+import Uotp from "../../../models/UOtp.js";
 import nodemailer from "nodemailer";
 
 const tarnsporter = nodemailer.createTransport({
@@ -16,19 +16,19 @@ export async function Register(req, res) {
     return res.status(400).json({ error: "Please Enter All Input Data" });
   }
   try {
-    const presuer = await users.findOne({ email: email });
+    const presuer = await Us.findOne({ email: email });
     if (presuer) {
       return res
         .status(400)
-        .json({ error: "This User Allready exist in our db" });
+        .json({ error: "This U Allready exist in our db" });
     } else {
-      const userregister = new users({
+      const Uregister = new Us({
         fname,
         email,
         password,
       });
       // here password hasing
-      const storeData = await userregister.save();
+      const storeData = await Uregister.save();
       return res.status(200).json(storeData);
     }
   } catch (error) {
@@ -43,14 +43,14 @@ export async function Login(req, res) {
   }
 
   try {
-    const otpverification = await userotp.findOne({ email: email });
+    const otpverification = await Uotp.findOne({ email: email });
     if (otpverification.otp === otp) {
-      const preuser = await users.findOne({ email: email });
+      const preU = await Us.findOne({ email: email });
       // token generate
-      const token = await preuser.generateAuthtoken();
+      const token = await preU.generateAuthtoken();
       res
         .status(200)
-        .json({ message: "User Login Succesfully Done", userToken: token });
+        .json({ message: "U Login Succesfully Done", UToken: token });
     } else {
       // res.status(400).json({error:"Invalid Otp"})
     }
@@ -67,15 +67,15 @@ export async function OtpSend(req, res) {
   }
 
   try {
-    const presuer = await users.findOne({ email: email });
+    const presuer = await Us.findOne({ email: email });
 
     if (presuer) {
       const OTP = Math.floor(100000 + Math.random() * 900000);
 
-      const existEmail = await userotp.findOne({ email: email });
+      const existEmail = await Uotp.findOne({ email: email });
 
       if (existEmail) {
-        const updateData = await userotp.findByIdAndUpdate(
+        const updateData = await Uotp.findByIdAndUpdate(
           { _id: existEmail._id },
           {
             otp: OTP,
@@ -102,7 +102,7 @@ export async function OtpSend(req, res) {
           }
         });
       } else {
-        const saveOtpData = new userotp({
+        const saveOtpData = new Uotp({
           email,
           otp: OTP,
         });
@@ -126,7 +126,7 @@ export async function OtpSend(req, res) {
         });
       }
     } else {
-      // res.status(400).json({ error: "This User Not Exist In our Db" })
+      // res.status(400).json({ error: "This U Not Exist In our Db" })
     }
   } catch (error) {
     // res.status(400).json({ error: "Invalid Details", error })
