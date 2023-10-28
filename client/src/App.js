@@ -1,12 +1,12 @@
 import React from "react";
-import { Otp } from "./src/pages/UAuth/Otp";
+import { Otp } from "./pages/UAuth/Otp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { C } from "./src/pages/C/C";
-import { PageNotFound } from "./src/pages/PageNotFound/PageNotFound";
-import Home from "./src/pages/Home/Home";
+import { C } from "./pages/C/C";
+import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
+import Home from "./pages/Home/Home";
 import { ADashboard } from "./src/pages/AdminDashboard/ADashboard";
-import { SPForm } from "./src/pages/SPForm/SPRegistration";
-import { Dashboard } from "./src/pages/Dashboard/Dashboard";
+import { SPForm } from "./pages/SPForm/SPRegistration";
+import { Dashboard } from "./pages/SPD/Dashboard";
 
 export const App = () => {
   return (

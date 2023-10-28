@@ -1,7 +1,7 @@
 import React from "react";
-import { AddCategory } from "./Category/AddCategory";
-import { ShowCategory } from "./Category/ShowCategory";
-import ShowServiceProvider from "./Category/ShowServiceProvider";
+import { AddCategory } from "./C/AddCategory";
+import { ShowCategory } from "./C/ShowCategory";
+import ShowServiceProvider from "./C/ShowServiceProvider";
 
 export const AdminDashboard = () => {
   return (
