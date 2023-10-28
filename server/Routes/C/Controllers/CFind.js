@@ -1,10 +1,9 @@
 import { Router } from "express";
-import serviceprovider from "../../models/serviceproviderSchema.js";
+import category from "../../../models/CSchema.js";
 const router = Router();
 
 router.get("/all", async (req, res) => {
-  const founddata = await serviceprovider.find();
-  console.log(founddata);
+  const founddata = await category.find();
   res.send(founddata);
 });
 

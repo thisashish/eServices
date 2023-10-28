@@ -1,7 +1,6 @@
 import { Schema, model } from "mongoose";
-import validator from "validator";
 
- const categorySchema = new Schema({
+const CSchema = new Schema({
   name: {
     type: String,
     require: true,
@@ -14,6 +13,6 @@ import validator from "validator";
 });
 
 // category otp model
-const category = new model("categorys", categorySchema);
+const C = new model("categorys", CSchema);
 
-export default category;
+export default C;

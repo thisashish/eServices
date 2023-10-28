@@ -1,7 +1,7 @@
-import users from "../models/userSchema.js";
-import userotp from "../models/userOtp.js";
+import users from "../../../models/USchema.js";
+import userotp from "../../../models/UOtp.js";
 import nodemailer from "nodemailer";
-// email config
+
 const tarnsporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -10,16 +10,13 @@ const tarnsporter = nodemailer.createTransport({
   },
 });
 
-export async function userregister(req, res) {
+export async function Register(req, res) {
   const { fname, email, password } = req.body;
-
   if (!fname || !email || !password) {
     return res.status(400).json({ error: "Please Enter All Input Data" });
   }
-
   try {
     const presuer = await users.findOne({ email: email });
-
     if (presuer) {
       return res
         .status(400)
@@ -30,9 +27,7 @@ export async function userregister(req, res) {
         email,
         password,
       });
-
       // here password hasing
-
       const storeData = await userregister.save();
       return res.status(200).json(storeData);
     }
@@ -41,19 +36,16 @@ export async function userregister(req, res) {
   }
 }
 
-export async function userLogin(req, res) {
+export async function Login(req, res) {
   const { email, otp } = req.body;
-
   if (!otp || !email) {
     res.status(400).json({ error: "Please Enter Your OTP and email" });
   }
 
   try {
     const otpverification = await userotp.findOne({ email: email });
-
     if (otpverification.otp === otp) {
       const preuser = await users.findOne({ email: email });
-
       // token generate
       const token = await preuser.generateAuthtoken();
       res
@@ -67,8 +59,7 @@ export async function userLogin(req, res) {
   }
 }
 
-// user send otp
-export async function userOtpSend(req, res) {
+export async function OtpSend(req, res) {
   const { email } = req.body;
 
   if (!email) {

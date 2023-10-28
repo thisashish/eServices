@@ -4,6 +4,6 @@ const router = Router();
 const app = express();
 app.use(cookies());
 router.get("/one", async (req, res) => {
-  console.log(req.cookies.serviceproviderToken);
+  console.log(req.cookies.SPToken);
 });
 export default router;

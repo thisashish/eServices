@@ -1,9 +1,10 @@
 import { Router } from "express";
-import category from "../../models/categorySchema.js";
+import SP from "../../models/SPSchema.js";
 const router = Router();
 
 router.get("/all", async (req, res) => {
-  const founddata = await category.find();
+  const founddata = await SP.find();
+  console.log(founddata);
   res.send(founddata);
 });
 

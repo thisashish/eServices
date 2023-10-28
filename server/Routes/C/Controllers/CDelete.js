@@ -1,5 +1,5 @@
 import { Router } from "express";
-import category from "../../models/categorySchema.js";
+import category from "../../../models/CSchema.js";
 const router = Router();
 
 router.post("/one/byid", async (req, res) => {
