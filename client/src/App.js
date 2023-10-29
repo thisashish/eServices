@@ -10,6 +10,7 @@ import Home from "./pages/Home/Home";
 import { AD } from "./pages/AD/AD";
 import { SPForm } from "./pages/SPForm/SPRegistration";
 import { D } from "./pages/SPD/D";
+import ULogin from "./components/LoginPopup/ULogin";
 
 //code
 export const App = () => {

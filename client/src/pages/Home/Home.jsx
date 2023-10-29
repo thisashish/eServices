@@ -3,8 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
 import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
-import { Headers } from "./Components/Headers";
-import { location } from "./Utils";
+import { Header } from "../../components/Header/Header";
+import { L } from "./Utils";
 import { FindC } from "../../API/C/FindC";
 
 const Home = () => {
@@ -26,14 +26,14 @@ const Home = () => {
     <>
       <div>
         <div className="Home_Headers">
-          <Headers />
+          <Header />
         </div>
         <div className="Home_categoryselector">
           <CategoryLocationSelector defaultLocation={slug} />
         </div>
         <HomeHeader />
       </div>
-      {location.includes(slug) ? (
+      {L.includes(slug) ? (
         <div>
           <h1>Categories</h1>
           <div className="Home_Category">
@@ -56,7 +56,7 @@ const Home = () => {
           </div>
         </div>
       ) : (
-        <>Nothing</>
+        <>Soon we will be at this location</>
       )}
     </>
   );

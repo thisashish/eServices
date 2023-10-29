@@ -1,10 +1,10 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { FindC } from "../../API/C/FindC";
-import { location } from "../Home/Utils";
+import { L } from "../Home/Utils";
 import useReduserfun from "./useReduserfun";
 import { initialState } from "./Utils";
 import axios from "axios";
-import "./SPRegistration.css";
+// import "./SPRegistration.css";
 import { SPFormOtp } from "./SPFormOtp";
 
 export const SPForm = () => {
@@ -150,7 +150,7 @@ export const SPForm = () => {
               value={formState.location}
             >
               <option>Select Location</option>
-              {location.map((l) => (
+              {L.map((l) => (
                 <option key={l} value={l}>
                   {l}
                 </option>
