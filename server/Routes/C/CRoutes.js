@@ -1,8 +1,7 @@
 import { Router } from "express";
-import { Login, OtpSend, Register } from "./userControllers/auth";
 const router = Router();
 
 //auth routes
-router.post("/add", CategoryAdd);
+router.post("/add", CAdd);
 
 export default router;

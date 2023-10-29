@@ -1,9 +1,7 @@
 //imp
-
 ////pkg
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 ////file
 import { Otp } from "./pages/UAuth/Otp";
 import { C } from "./pages/C/C";
@@ -19,10 +17,10 @@ export const App = () => {
     <BrowserRouter>
       <>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/user/otp" element={<Otp />} />
           <Route path="/:slug" element={<Home />} />
           <Route path="/:slug/:slug" element={<C />} />
-          <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/admin/dashboard" element={<AD />} />
           <Route path="/service-provider/register" element={<SPForm />} />

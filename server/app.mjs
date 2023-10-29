@@ -15,7 +15,7 @@ import CRoutes from "./Routes/C/CRoutes.js";
 import URoutes from "./Routes/User/URoutes.js";
 import category from "./models/CSchema.js";
 import router from "./Routes/router.js";
-import "./db/conn.js";
+import "./config/conn.js";
 import CFind from "./Routes/C/Controllers/CFind.js";
 import CDelete from "./Routes/C/Controllers/CDelete.js";
 import SPAdd from "./Routes/SP/SPAdd.js";
