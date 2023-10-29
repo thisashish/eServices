@@ -1,7 +1,7 @@
 import { connect } from "mongoose";
-import dotenv from "dotenv"; // Import the dotenv package
+import dotenv from "dotenv"; 
 
-dotenv.config(); // Call the config function
+dotenv.config(); 
 const DB = process.env.DATABASE;
 
 connect(DB, {
