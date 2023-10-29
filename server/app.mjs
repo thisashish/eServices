@@ -24,13 +24,13 @@ import CategoryFind from "./Routes/Category/CategoryFind.js";
 import CategoryDelete from "./Routes/Category/CategoryDelete.js";
 // import ProfileFind from "./Routes/Profile/ProfileFind.js";
 import ServiceProviderAdd from "./Routes/ServiceProvider/ServiceProviderAdd.js";
-<<<<<<< HEAD
+
 import ServiceProviderDashboard from "./Routes/ServiceProvider/ServiceProviderDashboard.js";
 
-=======
+
 import ServiceProviderLogin from "./Routes/ServiceProvider/ServiceProviderLogin.js";
 import ServiceProviderFind from "./Routes/ServiceProvider/ServiceProviderFind.js"
->>>>>>> 5423e8c2c3cfd009c064f9c80befcd626f951bb0
+
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(json());
 app.use(cors());
@@ -59,3 +59,8 @@ app.get("/profile",async(req,res)=>{
 app.listen(PORT, () => {
   console.log(`Server start at Port No :${process.env.PORT}`);
 });
+
+export default app;
+
+
+

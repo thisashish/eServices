@@ -13,6 +13,8 @@ type:String,
 });
 
 // category otp model
-const profile = new model("profiles", profileSchema);
+const Profile = new model("profiles", profileSchema);
 
-export default profile;
+// export default Profile;
+
+module.exports = Profile;

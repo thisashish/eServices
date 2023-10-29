@@ -16,4 +16,7 @@ import validator from "validator";
 // category otp model
 const category = new model("categorys", categorySchema);
 
+// module.exports = category;
 export default category;
+
+
