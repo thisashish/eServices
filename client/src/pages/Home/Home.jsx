@@ -25,9 +25,7 @@ const Home = () => {
   return (
     <>
       <div>
-        <div className="Home_Headers">
-          <Header />
-        </div>
+        <Header />
         <div className="Home_categoryselector">
           <CategoryLocationSelector defaultLocation={slug} />
         </div>

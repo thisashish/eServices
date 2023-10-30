@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
-import {ULogin} from "../LoginPopup/ULogin";
+import { ULoginSignupPopup } from "./ULoginSignupPopup";
 // import Auth from "../../../components/Auth";
 
 export const Header = () => {
@@ -13,7 +13,18 @@ export const Header = () => {
   const closePopup = () => {
     setPopupVisible(false);
   };
+  useEffect(() => {
+    if (isPopupVisible) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
 
+    // Clean up the effect when the component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isPopupVisible]);
   return (
     <div className="header">
       <div className="header_left">
@@ -33,7 +44,7 @@ export const Header = () => {
         <button className="header_right_link" onClick={openPopup}>
           Log in
         </button>
-        {isPopupVisible && <ULogin onClose={closePopup} />}
+        {isPopupVisible && <ULoginSignupPopup onClose={closePopup} />}
         {/* <Auth /> */}
       </div>
     </div>
