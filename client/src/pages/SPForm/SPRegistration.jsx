@@ -1,20 +1,20 @@
 import React, { useEffect, useReducer, useState } from "react";
-import { FindCategory } from "../../API/C/FindC";
-import { location } from "../Home/Utils";
+import { FindC } from "../../API/C/FindC";
+import { L } from "../Home/Utils";
 import useReduserfun from "./useReduserfun";
 import { initialState } from "./Utils";
 import axios from "axios";
-import "./SPRegistration.css";
+// import "./SPRegistration.css";
 import { SPFormOtp } from "./SPFormOtp";
 
 export const SPForm = () => {
-  const Category = FindCategory();
+  const C = FindC();
   const [formState, dispatch] = useReducer(useReduserfun, initialState);
   const [showOtpElement, setShowOtpElement] = useState(false);
   const [SPdata, setSPdata] = useState([]);
 
   useEffect(() => {
-    const fetchuserdata = async () => {
+    const fetchUdata = async () => {
       const userdata = await axios.get("/SP/login/one", {
         withCredentials: true,
         headers: {
@@ -25,7 +25,7 @@ export const SPForm = () => {
       });
       setSPdata(userdata.data);
     };
-    fetchuserdata();
+    fetchUdata();
   }, []);
   console.log(SPdata);
   const handleTextChange = (name, value) => {
@@ -150,7 +150,7 @@ export const SPForm = () => {
               value={formState.location}
             >
               <option>Select Location</option>
-              {location.map((l) => (
+              {L.map((l) => (
                 <option key={l} value={l}>
                   {l}
                 </option>
@@ -162,7 +162,7 @@ export const SPForm = () => {
               value={formState.category}
             >
               <option>Select Category</option>
-              {Category.map((c) => (
+              {C.map((c) => (
                 <option key={c.id} value={c.name}>
                   {c.name}
                 </option>

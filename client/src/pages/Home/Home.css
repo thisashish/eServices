@@ -69,15 +69,11 @@ h1 {
   text-align: center;
 }
 
-.Home_Headers {
-  position: absolute;
-  z-index: 1;
-}
 .Home_categoryselector {
   position: absolute;
   top: 40%;
   left: 30%;
-  z-index: 2;
+  z-index: 1;
 }
 .Home_Category_Div {
   display: flex;

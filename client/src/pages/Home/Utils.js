@@ -1,4 +1,4 @@
-export const location = ["palia", "lakhimpur", "gola"];
+export const L = ["palia", "lakhimpur", "gola"];
 export const categories = [
   "AC Repair",
   "Laptop Repair",
@@ -10,12 +10,8 @@ export const images = [
   process.env.PUBLIC_URL + "/images/air-conditioner.jpg",
   process.env.PUBLIC_URL + "/images/fan.jpg",
   process.env.PUBLIC_URL + "/images/Geyser.jpg",
-  
-  
-  process.env.PUBLIC_URL + "/images/cctv.jpg",
 
-  
-  
+  process.env.PUBLIC_URL + "/images/cctv.jpg",
 ];
 export const items = [
   process.env.PUBLIC_URL + "/images/air-conditioner.jpg",

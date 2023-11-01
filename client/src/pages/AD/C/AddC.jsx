@@ -1,5 +1,5 @@
 import React from "react";
-import { location } from "../../Home/Utils";
+import { L } from "../../Home/Utils";
 
 export const AddC = () => {
   return (
@@ -16,7 +16,7 @@ export const AddC = () => {
         <input name="img" type="file" />
         <label>Locations</label>
         <select name="locations" multiple>
-          {location.map((l) => (
+          {L.map((l) => (
             <option>{l}</option>
           ))}
         </select>

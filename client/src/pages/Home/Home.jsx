@@ -3,12 +3,12 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Home.css";
 import { CategoryLocationSelector } from "./Components/CategoryLocationSelector";
 import { HomeHeader } from "./Components/HomeHeader";
-import { Headers } from "./Components/Headers";
-import { location } from "./Utils";
-import { FindCategory } from "../../API/C/FindC";
+import { Header } from "../../components/Header/Header";
+import { L } from "./Utils";
+import { FindC } from "../../API/C/FindC";
 
 const Home = () => {
-  const category = FindCategory();
+  const c = FindC();
   const { slug } = useParams();
   const navigate = useNavigate();
 
@@ -25,19 +25,17 @@ const Home = () => {
   return (
     <>
       <div>
-        <div className="Home_Headers">
-          <Headers />
-        </div>
+        <Header />
         <div className="Home_categoryselector">
           <CategoryLocationSelector defaultLocation={slug} />
         </div>
         <HomeHeader />
       </div>
-      {location.includes(slug) ? (
+      {L.includes(slug) ? (
         <div>
           <h1>Categories</h1>
           <div className="Home_Category">
-            {category.map((c) =>
+            {c.map((c) =>
               c.locations.includes(slug) ? (
                 <div className="Home_Category_Div" key={c.name}>
                   <Link to={`/${slug}/${c.name}`}>
@@ -56,7 +54,7 @@ const Home = () => {
           </div>
         </div>
       ) : (
-        <>Nothing</>
+        <>Soon we will be at this location</>
       )}
     </>
   );
