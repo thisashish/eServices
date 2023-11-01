@@ -14,7 +14,7 @@ import { dirname } from "path";
 import CRoutes from "./Routes/C/CRoutes.js";
 import URoutes from "./Routes/User/URoutes.js";
 import category from "./models/CSchema.js";
-import router from "./Routes/router.js";
+// import router from "./Routes/router.js";
 import "./db/conn.js";
 import CFind from "./Routes/C/Controllers/CFind.js";
 import CDelete from "./Routes/C/Controllers/CDelete.js";
@@ -31,16 +31,16 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-import CategoryFind from "./Routes/Category/CategoryFind.js";
-import CategoryDelete from "./Routes/Category/CategoryDelete.js";
+// import CategoryFind from "./Routes/Category/CategoryFind.js";
+// import CategoryDelete from "./Routes/Category/CategoryDelete.js";
 // import ProfileFind from "./Routes/Profile/ProfileFind.js";
-import ServiceProviderAdd from "./Routes/ServiceProvider/ServiceProviderAdd.js";
+// import ServiceProviderAdd from "./Routes/ServiceProvider/ServiceProviderAdd.js";
 
-import ServiceProviderDashboard from "./Routes/ServiceProvider/ServiceProviderDashboard.js";
+// import ServiceProviderDashboard from "./Routes/ServiceProvider/ServiceProviderDashboard.js";
 
 
-import ServiceProviderLogin from "./Routes/ServiceProvider/ServiceProviderLogin.js";
-import ServiceProviderFind from "./Routes/ServiceProvider/ServiceProviderFind.js"
+// import ServiceProviderLogin from "./Routes/ServiceProvider/ServiceProviderLogin.js";
+// import ServiceProviderFind from "./Routes/ServiceProvider/ServiceProviderFind.js"
 
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));

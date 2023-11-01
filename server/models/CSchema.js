@@ -17,7 +17,7 @@ const C = new model("Cs", CSchema);
 
 
 // module.exports = category;
-export default category;
+// export default category;
 
 
 
