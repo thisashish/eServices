@@ -6,14 +6,14 @@ export const AddC = () => {
     <div>
       <h1>Add Category</h1>
       <form
-        action="http://localhost:4001/A/add/C"
+        action="http://localhost:4001/C/add"
         method="post"
-        enctype="multipart/form-data"
+        encType="multipart/form-data"
       >
         <label>Category Name</label>
-        <input name="name" />
+        <input name="name" type="text"/>
         <label>Image</label>
-        <input name="img" type="file" />
+        <input name="img" type="file" accept="image/*" />
         <label>Locations</label>
         <select name="locations" multiple>
           {L.map((l) => (

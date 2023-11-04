@@ -1,64 +1,76 @@
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-// import { ToastContainer, toast } from "react-toastify";
-// import { sentOtpFunction } from "../../services/Apis";
-// import Spinner from "react-bootstrap/Spinner";
-// import "../styles/mix.css";
 import "./ULogin.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axios from "axios";
 export const ULogin = ({ toggleULoginPopup }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [spiner, setSpiner] = useState(false);
+  const [passhow, setPassShow] = useState(false);
+  const [inputdata, setInputdata] = useState({
+    email: "",
+    password: "",
+  });
 
-  const navigate = useNavigate();
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  // setinputvalue
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setInputdata({ ...inputdata, [name]: value });
   };
+  const handleSubmit = async (e) => {
+    console.log(inputdata);
+    e.preventDefault();
+    const { email, password } = inputdata;
 
-  // sendotp
-  // const sendOtp = async (e) => {
-  //   e.preventDefault();
+    if (email === "") {
+      console.log("Enter Your Email");
+    } else if (!email.includes("@")) {
+      console.log("Enter Valid Email");
+    } else if (password === "") {
+      console.log("Enter Your Password");
+    } else if (password.length < 6) {
+      console.log("password length minimum 6 character");
+    } else {
+      const res = await axios.post("/U/auth/login", { inputdata });
 
-  //   if (email === "") {
-  //     // toast.error("Enter Your Email !");
-  //   } else if (!email.includes("@")) {
-  //     // toast.error("Enter Valid Email !");
-  //   } else {
-  //     setSpiner(true);
-  //     const data = {
-  //       email: email,
-  //     };
-
-  //     const response = await sentOtpFunction(data);
-
-  //     if (response.status === 200) {
-  //       setSpiner(false);
-  //       navigate("/user/otp", { state: email });
-  //     } else {
-  //       // toast.error(response.response.data.error);
-  //     }
-  //   }
-  // };
-
+      if (res.data === "success") {
+        window.location.href = "/";
+      } else {
+        console.log("not login");
+      }
+    }
+  };
   return (
     <>
       <div className="ulogin">
         <h1>Log In</h1>
         <p>Please login to continue</p>
         <input
+          className="ULogin_form_input"
           type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter Email Address"
+          name="email"
+          onChange={handleChange}
+          placeholder="Enter Your Email"
         />
-        <input
-          type="password"
-          placeholder="Password"
-          // value={this.state.password}
-          // onChange={this.handlePasswordChange}
-        />
-        {/* onClick={sendOtp} */}
-        <button className="btn">Login</button>
+        <div className="ULogin_form_password">
+          <input
+            className="ULogin_form_input"
+            name="password"
+            type={!passhow ? "password" : "text"}
+            onChange={handleChange}
+            placeholder="Enter Your password"
+          />
+          <div
+            className="ULogin_showpass"
+            onClick={() => setPassShow(!passhow)}
+          >
+            {!passhow ? (
+              <FaEye className="ULogin_form_password_showpass_eye" />
+            ) : (
+              <FaEyeSlash className="ULogin_form_password_showpass_eye" />
+            )}{" "}
+          </div>
+        </div>
+        <button className="ULogin_btn" onClick={handleSubmit}>
+          Login
+        </button>
         <p>
           Don't have account
           <a
@@ -71,7 +83,6 @@ export const ULogin = ({ toggleULoginPopup }) => {
           </a>
         </p>
       </div>
-      {/* <ToastContainer /> */}
     </>
   );
 };

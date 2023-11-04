@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { categories, L } from "../Utils";
 import "./CategoryLocationSelector.css";
 import "./CategoryLocationBox.css";
+import { FindC } from "../../../API/C/FindC";
 
 export const CategoryLocationSelector = (c) => {
+  const categories = FindC();
   const [locationopen, setLocationopen] = useState(
     c.defaultLocation === undefined ? true : false
   );
@@ -78,8 +80,8 @@ export const CategoryLocationSelector = (c) => {
             >
               <option value="">Select a category</option>
               {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
+                <option key={category._id} value={category.name}>
+                  {category.name}
                 </option>
               ))}
             </select>

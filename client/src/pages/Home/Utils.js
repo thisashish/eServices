@@ -1,11 +1,4 @@
 export const L = ["palia", "lakhimpur", "gola"];
-export const categories = [
-  "AC Repair",
-  "Laptop Repair",
-  "Mobile Repair",
-  "Fridge Repair",
-  "Air Cooler Repair",
-];
 export const images = [
   process.env.PUBLIC_URL + "/images/air-conditioner.jpg",
   process.env.PUBLIC_URL + "/images/fan.jpg",

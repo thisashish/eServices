@@ -1,17 +1,19 @@
 import React from "react";
 import { useState } from "react";
-// import { registerfunction } from "../../services/Apis";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import "./USignup.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { UOtp } from "./UOtp";
 export const USignup = ({ toggleULoginPopup }) => {
   const [passhow, setPassShow] = useState(false);
+  const [otp, setOtp] = useState(false);
 
   const [inputdata, setInputdata] = useState({
     fname: "",
     email: "",
     password: "",
   });
-
-  const navigate = useNavigate();
 
   // setinputvalue
   const handleChange = (e) => {
@@ -20,85 +22,81 @@ export const USignup = ({ toggleULoginPopup }) => {
   };
 
   // register data
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     const { fname, email, password } = inputdata;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { fname, email, password } = inputdata;
 
-  //     if (fname === "") {
-  //     //   toast.error("Enter Your Name");
-  //     } else if (email === "") {
-  //     //   toast.error("Enter Your Email");
-  //     } else if (!email.includes("@")) {
-  //     //   toast.error("Enter Valid Email");
-  //     } else if (password === "") {
-  //     //   toast.error("Enter Your Password");
-  //     } else if (password.length < 6) {
-  //     //   toast.error("password length minimum 6 character");
-  //     } else {
-  //     //   const response = await registerfunction(inputdata);
+    if (fname === "") {
+      console.log("Enter Your Name");
+    } else if (email === "") {
+      console.log("Enter Your Email");
+    } else if (!email.includes("@")) {
+      console.log("Enter Valid Email");
+    } else if (password === "") {
+      console.log("Enter Your Password");
+    } else if (password.length < 6) {
+      console.log("password length minimum 6 character");
+    } else {
+      const res = await axios.post("/U/auth/register", { inputdata });
 
-  //       if (response.status === 200) {
-  //         setInputdata({ ...inputdata, fname: "", email: "", password: "" });
-  //         navigate("/");
-  //       } else {
-  //         // toast.error(response.response.data.error);
-  //       }
-  //     }
-  //   };
+      if (res.data === "otp sent") {
+        setOtp(true)
+      } else {
+        console.log("email not sent");
+      }
+    }
+  };
 
   return (
     <>
-      <section>
-        <div className="form_data">
-          <div className="form_heading">
-            <h1>Sign Up</h1>
-            <p style={{ textAlign: "center" }}>
-              We are glad that you will be using Project Cloud to manage your
-              tasks! We hope that you will get like it.
-            </p>
+      {otp ? (
+        <UOtp inputdata={inputdata}/>
+      ) : (
+        <div className="USignup">
+          <div className="USignup_heading">
+            <h1 className="USignup_heading_h1">Sign Up</h1>
+            <p className="USignup_heading_p">Lets make life easy</p>
           </div>
-          <form>
-            <div className="form_input">
-              <label htmlFor="fname">Name</label>
+          <form className="USignup_form">
+            <input
+              className="USignup_form_input"
+              name="fname"
+              type="text"
+              onChange={handleChange}
+              placeholder="Enter Your Name"
+            />
+            <input
+              className="USignup_form_input"
+              type="email"
+              name="email"
+              onChange={handleChange}
+              placeholder="Enter Your Email"
+            />
+
+            <div className="USignup_form_password">
               <input
-                type="text"
-                name="fname"
-                id=""
+                className="USignup_form_input"
+                name="password"
+                type={!passhow ? "password" : "text"}
                 onChange={handleChange}
-                placeholder="Enter Your Name"
+                placeholder="Enter Your password"
               />
-            </div>
-            <div className="form_input">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="email"
-                id=""
-                onChange={handleChange}
-                placeholder="Enter Your Email Address"
-              />
-            </div>
-            <div className="form_input">
-              <label htmlFor="password">Password</label>
-              <div className="two">
-                <input
-                  type={!passhow ? "password" : "text"}
-                  name="password"
-                  id=""
-                  onChange={handleChange}
-                  placeholder="Enter Your password"
-                />
-                <div className="showpass" onClick={() => setPassShow(!passhow)}>
-                  {!passhow ? "Show" : "Hide"}
-                </div>
+              <div className="showpass" onClick={() => setPassShow(!passhow)}>
+                {!passhow ? (
+                  <FaEye className="USignup_form_password_showpass_eye" />
+                ) : (
+                  <FaEyeSlash className="USignup_form_password_showpass_eye" />
+                )}{" "}
               </div>
             </div>
-            {/* onClick={handleSubmit} */}
-            <button className="btn">Sign Up</button>
+
+            <button className="USignup_form_btn" onClick={handleSubmit}>
+              Sign Up
+            </button>
             <p>
               Don't have and account{" "}
               <a
-              href="#"
+                href="#"
                 onClick={() => {
                   toggleULoginPopup();
                 }}
@@ -108,8 +106,7 @@ export const USignup = ({ toggleULoginPopup }) => {
             </p>
           </form>
         </div>
-        {/* <ToastContainer /> */}
-      </section>
+      )}
     </>
   );
 };

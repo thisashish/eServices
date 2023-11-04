@@ -1,6 +1,6 @@
 import { Router } from "express";
 import multer, { diskStorage } from "multer";
-import users from "../../models/USchema";
+import users from "../../models/USchema.js";
 const router = Router();
 const storage = diskStorage({
   destination: "./uploads",

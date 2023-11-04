@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { ULoginSignupPopup } from "./ULoginSignupPopup";
-// import Auth from "../../../components/Auth";
+import axios from "axios";
 
 export const Header = () => {
   const [isPopupVisible, setPopupVisible] = useState(false);
+  const [loginuser, setLoginuser] = useState([]);
 
   const openPopup = () => {
     setPopupVisible(true);
@@ -14,6 +15,18 @@ export const Header = () => {
     setPopupVisible(false);
   };
   useEffect(() => {
+    const userlogin = async () => {
+      const user = await axios.get("/U/find/one", {
+        withCredentials: true,
+        headers: {
+          Accept: "application.json",
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
+      });
+      setLoginuser(user.data);
+    };
+    userlogin();
     if (isPopupVisible) {
       document.body.style.overflow = "hidden";
     } else {
@@ -25,6 +38,21 @@ export const Header = () => {
       document.body.style.overflow = "auto";
     };
   }, [isPopupVisible]);
+  const handlelogout = async () => {
+    const res = await axios.get("/U/auth/logout", {
+      withCredentials: true,
+      headers: {
+        Accept: "application.json",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (res.status === 200) {
+      window.location.href = "/";
+    } else {
+    }
+  };
   return (
     <div className="header">
       <div className="header_left">
@@ -41,9 +69,16 @@ export const Header = () => {
         <a href="/contact" className="header_right_link">
           Contact Us
         </a>
-        <button className="header_right_link" onClick={openPopup}>
-          Log in
-        </button>
+        {loginuser.length !== 0 ? (
+          <>
+            <p>{loginuser.fname}</p>
+            <button onClick={handlelogout}>Logout</button>
+          </>
+        ) : (
+          <button className="header_right_link" onClick={openPopup}>
+            Log in
+          </button>
+        )}
         {isPopupVisible && <ULoginSignupPopup onClose={closePopup} />}
         {/* <Auth /> */}
       </div>

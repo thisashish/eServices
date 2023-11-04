@@ -1,9 +1,9 @@
 import { Router } from "express";
-import category from "../../../models/CSchema.js";
+import C from "../../models/CSchema.js";
 const router = Router();
 
 router.get("/all", async (req, res) => {
-  const founddata = await category.find();
+  const founddata = await C.find();
   res.send(founddata);
 });
 

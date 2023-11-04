@@ -1,46 +1,34 @@
-/* YourComponent.css */
-
-.image-row {
+/* .image-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Distribute containers evenly in the row */
-  margin-bottom: 20px; /* Add spacing between rows (adjust as needed) */
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .image-container {
-  flex-basis: calc(
-    25% - 10px
-  ); /* Adjust the width of each container (4 containers in a row) */
-  margin-right: 10px; /* Add spacing between containers (adjust as needed) */
-  margin-bottom: 10px; /* Add spacing between rows (adjust as needed) */
+  flex-basis: calc(25% - 10px);
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
-/* Additional styling for the Logo component, if needed */
-
-/* Home.css */
-
-/* Style the entire container */
 .container {
-  max-width: 1200px; /* Adjust the maximum width as needed */
-  margin: 0 auto; /* Center the container horizontally */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-/* Style the logo gallery header */
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Style the logo gallery grid */
 .logo-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
-  gap: 20px; /* Adjust the gap between images as needed */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-/* Style individual logo items */
 .logo-item {
   display: flex;
   flex-direction: column;
@@ -48,21 +36,18 @@ h1 {
   text-align: center;
 }
 
-/* Style the logo images */
 .logo-image {
   width: 100%;
-  max-width: 200px; /* Adjust the maximum width of images as needed */
+  max-width: 200px;
   height: auto;
 }
 
-/* Style the links below the images */
 .logo-link {
   margin-top: 10px;
   text-decoration: none;
-  color: #007bff; /* Change the link color as needed */
+  color: #007bff;
 }
 
-/* Additional styling for specific pages */
 .page-content {
   font-size: 18px;
   padding: 20px;
@@ -93,4 +78,4 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
+} */

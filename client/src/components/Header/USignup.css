@@ -1,0 +1,53 @@
+.USignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.USignup_heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.USignup_heading_p {
+  font-family: ui-serif;
+  font-weight: bold;
+}
+
+.USignup_form_input {
+  border-radius: 8px;
+  padding: 0.7rem 1.3rem;
+  border-color: black;
+  margin: 0.5rem;
+  font-family: "Times New Roman", Times, serif;
+}
+.USignup_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.USignup_form_btn {
+  margin-right: 55px;
+  margin-left: 45px;
+  margin-top: 13px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 1px;
+  border: none;
+  border-radius: 45px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.USignup_form_btn:hover {
+  background-color: #0056b3;
+}
+
+.USignup_form_password {
+  display: flex;
+  align-items: center;
+}
+.USignup_form_password_showpass_eye {
+  position: absolute;
+  right: 2rem;
+  bottom: 8rem;
+}

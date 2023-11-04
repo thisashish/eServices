@@ -7,6 +7,7 @@ export const FindC = () => {
     const res = async () => {
       const res1 = await axios.get("/C/find/all");
       setRes(res1.data);
+     
     };
     res();
   }, []);
