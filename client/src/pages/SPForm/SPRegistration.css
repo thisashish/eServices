@@ -1,6 +1,8 @@
 html, body {
   /* height: 100%; */
   /* overflow: hidden; */
+  background-image: url('SP-registration/registration.png');
+  background-repeat: no-repeat;
 }
 
 
@@ -18,6 +20,7 @@ padding-top: 19px;
   align-items: center;
   max-width: 400px;
   margin: -18px auto;
+  
 
   /* margin-left: auto; */
   
@@ -29,7 +32,7 @@ padding-top: 19px;
   position:static;
   padding-bottom: 100px;
 
-  background-image: url('../SPForm/service-provider-registration/registration.png'); 
+  /* background-image: url('../SPForm/service-provider-registration/registration.png');  */
   background-size:cover;
   background-repeat: no-repeat;
   margin-right: -8px;
@@ -47,6 +50,8 @@ padding-top: 19px;
   
   box-sizing: border-box;
   font-size: 16px;
+
+  
 }
 
 select {
