@@ -2,6 +2,7 @@ import express, { Router } from "express";
 const router = Router();
 import cookies from "cookie-parser";
 const app = express();
+import bcrypt from "bcryptjs";
 app.use(cookies());
 import jwt from "jsonwebtoken";
 
@@ -19,6 +20,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 router.post("/sendotp", async (req, res) => {
+  console.log(req.body);
   const chackotpexist = await SPOtp.find({
     email: req.body.email,
   });
@@ -31,13 +33,11 @@ router.post("/sendotp", async (req, res) => {
   };
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      //   console.error("Error sending email: " + error);
     } else {
-      //   console.log("Email sent: " + info.response);
     }
   });
   if (chackotpexist.length !== 0) {
-    await SPOtp.updateOne({ _id: chackotpexist._id }, { otp: OTP });
+    await SPOtp.updateOne({ email: req.body.email }, { otp: OTP });
     res.send("otp send");
   } else {
     await SPOtp.insertMany([{ email: req.body.email, otp: OTP }]);
@@ -48,39 +48,16 @@ router.post("/verifyotp", async (req, res) => {
   const foundotp = await SPOtp.findOne({
     email: req.body.formState.email,
   });
-  if (foundotp.otp === req.body.otp) {
+  console.log(foundotp.otp);
+  console.log(req.body.otp);
+  if (foundotp.otp == req.body.otp) {
     var token = jwt.sign(
-      { email: req.body.formstate.email },
-      process.env.JWTKEY
+      { email: req.body.formState.email },
+      // process.env.JWTKEY
+      "GU"
     );
-    const {
-      name,
-      adress,
-      phoneno,
-      email,
-      password,
-      locations,
-      categories,
-    } = req.body.formState;
-    const data = {
-      name,
-      adress,
-      phoneno,
-      email,
-      password,
-      locations,
-      categories,
-      token,
-      profilephoto: "",
-    };
-    await SP.insertMany([data]);
-    const bcrypt = require("bcryptjs");
-    res.status(200).json({
-      message: "User Login Succesfully Done",
-      SPToken: token,
-    });
 
-    bcrypt.hash(req.body.formState.password, 15, async function (err, hash) {
+    bcrypt.hash(req.body.formState.pass, 15, async function (err, hash) {
       await SP.insertMany([
         {
           name: req.body.formState.name,
@@ -88,6 +65,7 @@ router.post("/verifyotp", async (req, res) => {
           phoneno: req.body.formState.phoneno,
           email: req.body.formState.email,
           password: hash,
+          profilephoto: "",
           locations: req.body.formState.locations,
           categories: req.body.formState.categories,
           token: token,
@@ -105,5 +83,29 @@ router.post("/verifyotp", async (req, res) => {
     res.send("Wrong OTP");
   }
 });
-
+router.get("/logout", async (req, res) => {
+  res.clearCookie("SPToken");
+  res.status(200).send("Logout Success");
+});
+router.post("/login", async (req, res) => {
+  const user = await SP.findOne({ email: req.body.inputdata.email });
+  if (user) {
+    const match = await bcrypt.compare(
+      req.body.inputdata.password,
+      user.password
+    );
+    if (match) {
+      const options = {
+        httpOnly: true,
+        expires: new Date(Date.now() + 36000000),
+      };
+      res.cookie("SPToken", user.token, options);
+      res.send("success");
+    } else {
+      res.send("wrong pass");
+    }
+  } else {
+    res.send("email not registered");
+  }
+});
 export default router;

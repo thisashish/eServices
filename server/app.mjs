@@ -13,8 +13,8 @@ import { dirname } from "path";
 ////file
 import URoutes from "./Routes/User/URoutes.js";
 import category from "./models/CSchema.js";
-import CFind from "./Routes/C/CFind.js"
-import CAdd from "./Routes/C/CAdd.js"
+import CFind from "./Routes/C/CFind.js";
+import CAdd from "./Routes/C/CAdd.js";
 
 import "./config/conn.js";
 
@@ -31,16 +31,6 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// import CategoryFind from "./Routes/Category/CategoryFind.js";
-// import CategoryDelete from "./Routes/Category/CategoryDelete.js";
-// import ProfileFind from "./Routes/Profile/ProfileFind.js";
-// import ServiceProviderAdd from "./Routes/ServiceProvider/ServiceProviderAdd.js";
-
-// import ServiceProviderDashboard from "./Routes/ServiceProvider/ServiceProviderDashboard.js";
-
-// import ServiceProviderLogin from "./Routes/ServiceProvider/ServiceProviderLogin.js";
-// import ServiceProviderFind from "./Routes/ServiceProvider/ServiceProviderFind.js"
-
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use(json());
 app.use(cors());
@@ -53,15 +43,16 @@ app.use("/service/provider", SPDashboard);
 app.use("/SP/add", SPAdd);
 app.use("/SP/login", SPLogin);
 app.use("/SP/find", SPFind);
-app.use("/C/find", CFind);app.use("/C/add", CAdd);
+app.use("/C/find", CFind);
+app.use("/C/add", CAdd);
 
 app.get("/profile", async (req, res) => {
   res.send(await category.find());
 });
 
 //server
-app.listen(process.env.PORT, () => {
-  console.log(`Server start at Port No :${process.env.PORT}`);
+app.listen(4001, () => {
+  console.log(`Server start at Port No :${4001}`);
 });
 
 export default app;

@@ -1,13 +1,13 @@
 import React, { useEffect, useReducer, useState } from "react";
 import { FindC } from "../../API/C/FindC";
 import { L } from "../Home/Utils";
-import useReduserfun from "./useReduserfun";
+import useReduserfun from "../SPForm/useReduserfun";
 import { initialState } from "./Utils";
 import axios from "axios";
 // import "./SPRegistration.css";
-import { SPFormOtp } from "./SPFormOtp";
+import { SPOtpVerify } from "./SPOtpVerify";
 
-export const SPForm = () => {
+export const SPRegistration = () => {
   const C = FindC();
   const [formState, dispatch] = useReducer(useReduserfun, initialState);
   const [showOtpElement, setShowOtpElement] = useState(false);
@@ -27,7 +27,6 @@ export const SPForm = () => {
     };
     fetchUdata();
   }, []);
-  console.log(SPdata);
   const handleTextChange = (name, value) => {
     dispatch({
       type: "Handle Input Change",
@@ -90,6 +89,7 @@ export const SPForm = () => {
     // Perform the submit logic if the fields are valid
     try {
       const res = await axios.post("/SP/add/sendotp", formState);
+      console.log(formState)
       if (res.data === "otp send") {
         setShowOtpElement(true);
       }
@@ -103,7 +103,7 @@ export const SPForm = () => {
   return (
     <>
       {showOtpElement ? (
-        <SPFormOtp data={formState} />
+        <SPOtpVerify data={formState} />
       ) : (
         <div className="SPRegistration1">
           <h1 className="heading">Join Us as a Service-Provider</h1>

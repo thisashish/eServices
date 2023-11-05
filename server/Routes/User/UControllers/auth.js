@@ -18,9 +18,7 @@ export async function Register(req, res) {
   try {
     const presuer = await Us.findOne({ email: email });
     if (presuer) {
-      return res
-        .status(400)
-        .json({ error: "This U Allready exist in our db" });
+      return res.status(400).json({ error: "This U Allready exist in our db" });
     } else {
       const Uregister = new Us({
         fname,

@@ -1,17 +1,17 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-export const SPFormOtp = (c) => {
+export const SPOtpVerify = (c) => {
   const [otp, setOtp] = useState("");
   const handleSubmit = async () => {
-    const res = await axios.post("/serviceprovider/add/verifyotp", {
+    const res = await axios.post("/SP/add/verifyotp", {
       formState: c.data,
       otp: otp,
     });
-    if (res.status === 200) {
-      window.location.href = "/";
+    if (res.data === "success") {
+      window.location.href = "/service-provider/dashboard";
     } else {
-      alert(res.data);
+      console.log(res.data);
     }
   };
   return (

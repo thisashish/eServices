@@ -2,10 +2,8 @@ import { Router } from "express";
 import SP from "../../models/SPSchema.js";
 const router = Router();
 
-router.get("/all", async (req, res) => {
-  const founddata = await SP.find();
-  console.log(founddata);
-  res.send(founddata);
+router.get("/one", async (req, res) => {
+  res.send(await SP.findOne({ token: req.cookies.SPToken }));
 });
 
 export default router;

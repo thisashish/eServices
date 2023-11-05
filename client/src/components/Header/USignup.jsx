@@ -40,7 +40,7 @@ export const USignup = ({ toggleULoginPopup }) => {
       const res = await axios.post("/U/auth/register", { inputdata });
 
       if (res.data === "otp sent") {
-        setOtp(true)
+        setOtp(true);
       } else {
         console.log("email not sent");
       }
@@ -50,7 +50,7 @@ export const USignup = ({ toggleULoginPopup }) => {
   return (
     <>
       {otp ? (
-        <UOtp inputdata={inputdata}/>
+        <UOtp inputdata={inputdata} />
       ) : (
         <div className="USignup">
           <div className="USignup_heading">
