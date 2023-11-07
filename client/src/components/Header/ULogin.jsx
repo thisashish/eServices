@@ -40,48 +40,52 @@ export const ULogin = ({ toggleULoginPopup }) => {
   return (
     <>
       <div className="ulogin">
-        <h1>Log In</h1>
-        <p>Please login to continue</p>
-        <input
-          className="ULogin_form_input"
-          type="email"
-          name="email"
-          onChange={handleChange}
-          placeholder="Enter Your Email"
-        />
-        <div className="ULogin_form_password">
-          <input
-            className="ULogin_form_input"
-            name="password"
-            type={!passhow ? "password" : "text"}
-            onChange={handleChange}
-            placeholder="Enter Your password"
-          />
-          <div
-            className="ULogin_showpass"
-            onClick={() => setPassShow(!passhow)}
-          >
-            {!passhow ? (
-              <FaEye className="ULogin_form_password_showpass_eye" />
-            ) : (
-              <FaEyeSlash className="ULogin_form_password_showpass_eye" />
-            )}{" "}
+           <h1>Log In</h1>
+           <p>Please login to continue</p>
+            <div className="input-box">
+              <input
+               className="ULogin_form_input"
+                type="email"
+                 name="email"
+                onChange={handleChange}
+                  placeholder="Enter Your Email"
+              />
+            </div>
+            <div className="ULogin_form_password">
+                <input
+                  className="ULogin_form_input"
+                  name="password"
+                   type={!passhow ? "password" : "text"}
+                    onChange={handleChange}
+                  placeholder="Enter Your password"
+                  />
+              <div
+              className="ULogin_showpass"
+              onClick={() => setPassShow(!passhow)}
+              >
+                {!passhow ? (
+                 <FaEye className="ULogin_form_password_showpass_eye" />
+                 ) : (
+                   <FaEyeSlash className="ULogin_form_password_showpass_eye" />
+                 )}{" "}
+               </div>
+             </div>
+          <button className="ULogin_btn" onClick={handleSubmit}>
+               Login
+          </button>
+          <div class="register-link">
+              <p>
+                Don't have account ? 
+                <a
+                  href="#"
+                  onClick={() => {
+                  toggleULoginPopup();
+                      }}
+                 >
+                Sign up
+                </a>
+               </p>
           </div>
-        </div>
-        <button className="ULogin_btn" onClick={handleSubmit}>
-          Login
-        </button>
-        <p>
-          Don't have account
-          <a
-            href="#"
-            onClick={() => {
-              toggleULoginPopup();
-            }}
-          >
-            Sign up
-          </a>
-        </p>
       </div>
     </>
   );
