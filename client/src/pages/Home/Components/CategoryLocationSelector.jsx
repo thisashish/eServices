@@ -54,7 +54,7 @@ export const CategoryLocationSelector = (c) => {
                     key={location}
                     className="CategoryLocationSelector_location_option"
                     onClick={() => {
-                      window.location.href = location;
+                      //window.location.href = location;
                       setLocationopen(false);
                     }}
                   >
