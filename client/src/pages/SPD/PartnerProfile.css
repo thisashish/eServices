@@ -1,6 +1,8 @@
-.circular-input {
-    
+.profile-area{
+    margin-left:40%;
     display: inline-block;
+}
+.circular-input {
     position: relative;
     width: 150px;
     height: 150px;
@@ -11,17 +13,38 @@
     text-align: center;
     cursor: pointer;
     background-size: 100%;
-    margin-left:40%;
 }
 
-.partner-profile-input {
-    
+.dropDown-update-profile{
+    overflow: hidden;
+    margin-left: 80px;
+    position: absolute;
+    max-width: 50%;
+    z-index: 1;
+    background-color: white;
+    padding: 2px;
+    width: 72px;
+    border: 2px solid black;
+}
+.dropDown-update-profile button{
     width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    opacity: 1;
+    z-index: 1;
     cursor: pointer;
+    border: 0px;
+    margin: 2px;
+    background-color: white;
+    overflow: hidden;
+}
+.file-taker{
+    width: 100%;
+    height: 10px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+.dropDown-update-profile input[type="file"]{
+    position: absolute;
+    left: 0px;
+    opacity: 0;
 }
 
 label {
