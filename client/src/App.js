@@ -10,6 +10,7 @@ import { AD } from "./pages/AD/AD";
 import { SPRegistration } from "./pages/SP/SPRegistration";
 import { D } from "./pages/SP/D";
 import { SPLogin } from "./pages/SP/SPLogin";
+import UploadProfilePic from "./pages/SPD/UploadProfilePic";
 
 //code
 export const App = () => {
@@ -28,6 +29,7 @@ export const App = () => {
           <Route path="/:slug/:slug" element={<C />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/admin/dashboard" element={<AD />} />
+          <Route path="service/provider/profile" element={<UploadProfilePic/>} /> 
         </Routes>
       </>
     </BrowserRouter>

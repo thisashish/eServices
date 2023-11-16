@@ -9,6 +9,8 @@ import Analytics from "../SPD/Analytics";
 import { PartnerProfile } from "../SPD/PartnerProfile";
 import { ShowProfile } from "../SPD/ShowProfile";
 import axios from "axios";
+import UploadProfilePic from "../SPD/UploadProfilePic";
+
 
 export const D = () => {
   const [SPdata, setSPdata] = useState([]);
@@ -50,9 +52,10 @@ export const D = () => {
     <>
       <h1>hii {SPdata.name}</h1>
       <button onClick={handleLogout}>Logout</button>
-      <PartnerProfile />
+      {/* <PartnerProfile /> */}
+      <UploadProfilePic/>
       <ShowProfile />
-
+``
       <ServiceOption
         title="Earning"
         onClick={() => handleServiceClick("MyEarnings")}
