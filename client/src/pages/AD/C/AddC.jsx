@@ -1,5 +1,6 @@
 import React from "react";
 import { L } from "../../Home/Utils";
+import {addC} from "./AddC.css";
 
 export const AddC = () => {
   return (
@@ -13,7 +14,7 @@ export const AddC = () => {
         <label>Category Name</label>
         <input name="name" type="text"/>
         <label>Image</label>
-        <input name="img" type="file" accept="image/*" />
+        <input className="addcategory-image" name="img" type="file" accept="image/*" />
         <label>Locations</label>
         <select name="locations" multiple>
           {L.map((l) => (
