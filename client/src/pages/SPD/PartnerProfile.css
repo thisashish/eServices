@@ -1,6 +1,9 @@
 .profile-area{
-    margin-left:40%;
-    display: inline-block;
+    margin-left:auto;
+    margin-right: auto;
+    max-width: 150px;
+    display: block;
+    margin-bottom: 19px;
 }
 .circular-input {
     position: relative;
@@ -14,17 +17,19 @@
     cursor: pointer;
     background-size: 100%;
 }
-
+/* drop-down css */
 .dropDown-update-profile{
     overflow: hidden;
+    top: 20%;
     margin-left: 80px;
-    position: absolute;
+    position: fixed;
     max-width: 50%;
     z-index: 1;
     background-color: white;
     padding: 2px;
     width: 72px;
     border: 2px solid black;
+    border-radius: 6px;
 }
 .dropDown-update-profile button{
     width: 100%;
@@ -45,6 +50,26 @@
     position: absolute;
     left: 0px;
     opacity: 0;
+}
+/* submit button css */
+.submit-button{
+    border: 0px;
+    padding: 10px 15px;
+    max-width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    box-shadow: 0px 0px 7px rgb(187, 186, 186);
+    border-radius: 7px;
+    font-weight: bold;
+    transition: ease-in 0.3s;
+    margin-bottom: 10px;
+    background-color: rgb(118, 193, 255);
+}
+.submit-button:hover{
+    box-shadow: 10px 10px 10px rgb(187, 186, 186);
+    transition: ease-out 0.3s;
+    transform: scale(1.1,1.1);
 }
 
 label {
