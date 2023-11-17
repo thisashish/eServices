@@ -94,7 +94,7 @@ export const USignup = ({ toggleULoginPopup }) => {
               Sign Up
             </button>
             <p>
-              Don't have and account{" "}
+              Already Signed up?{" "}
               <a
                 href="#"
                 onClick={() => {
