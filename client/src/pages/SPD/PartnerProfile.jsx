@@ -32,15 +32,14 @@ export const PartnerProfile = () =>{
         <label for="fileInput" >
           Choose your Photo
         </label>
-        <div className="dropDown-update-profile" hidden={profile_options_visibility}>
+      </div>
+      <div className="dropDown-update-profile" hidden={profile_options_visibility}>
         <span className="file-taker">Update</span>
         <input type="file"></input>
         <span className="file-taker" onClick={removeProfile}>Delete</span>
       </div>
-      </div>
-      
     </div>
-      <button type="submit">Submit</button>
+      <button className="submit-button" type="submit">Submit</button>
     </form>
   </div>
 );
