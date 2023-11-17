@@ -1,3 +1,4 @@
+
 // PartnerProfile.js
 import React, { useState } from "react";
 import "./PartnerProfile.css";
@@ -43,3 +44,4 @@ export const PartnerProfile = () =>{
   </div>
 );
 }
+

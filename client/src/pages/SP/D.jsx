@@ -14,6 +14,8 @@ import Analytics from "../SPD/Analytics";
 import { PartnerProfile } from "../SPD/PartnerProfile";
 import { ShowProfile } from "../SPD/ShowProfile";
 import axios from "axios";
+import UploadProfilePic from "../SPD/UploadProfilePic";
+
 
 import CSS from "./D.css"
 
@@ -54,6 +56,7 @@ export const D = () => {
   };
 
   return (
+
     <div className="Dbody">
       <div className="page-header">
         <h1 className="admin-name" >hii {SPdata.name}</h1>
@@ -115,12 +118,7 @@ export const D = () => {
 
 
       </div>
-
-      {selectedService === "MyEarnings" && <MyEarnings />}
-      {selectedService === "Account" && <Account />}
-      {selectedService === "Lead" && <Lead />}
-      {selectedService === "Analytics" && <Analytics />}
-      {selectedService === "Address" && <Address />}
+  
     </div>
   );
 };
