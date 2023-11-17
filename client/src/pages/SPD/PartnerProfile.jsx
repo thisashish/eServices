@@ -1,18 +1,4 @@
-<<<<<<< HEAD
 
-import UploadProfilePic from "./UploadProfilePic";
-
-export const PartnerProfile = () => {
-  return (
-    <div>
-      <h1>My Profile</h1>
-      <UploadProfilePic />
-      {/* <RemoveProfilePic />
-      <ViewProfilePic /> */}
-    </div>
-  );
-};
-=======
 // PartnerProfile.js
 import React, { useState } from "react";
 import "./PartnerProfile.css";
@@ -59,4 +45,4 @@ export const PartnerProfile = () =>{
   </div>
 );
 }
->>>>>>> dbc4ffc0311f55c051ca7dd20e250ea578721106
+

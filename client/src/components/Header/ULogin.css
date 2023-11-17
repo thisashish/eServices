@@ -109,7 +109,7 @@
 .ulogin p a{
     
   
-  :#fff;
+  color-interpolation-filters:#fff;
     text-decoration:none;
     font-weight:600;
 }
