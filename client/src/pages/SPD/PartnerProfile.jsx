@@ -1,4 +1,4 @@
-
+import { FaMoneyBillTransfer } from "react-icons/fa6"; // Icon
 // PartnerProfile.js
 import React, { useState } from "react";
 import "./PartnerProfile.css";
@@ -39,7 +39,10 @@ export const PartnerProfile = () =>{
         <span className="file-taker" onClick={removeProfile}>Delete</span>
       </div>
     </div>
-      <button className="submit-button" type="submit">Submit</button>
+      <button className="submit-button" type="submit">
+        <FaMoneyBillTransfer className="Save-Icon"/>
+        <h1>Save</h1>
+      </button>
     </form>
   </div>
 );

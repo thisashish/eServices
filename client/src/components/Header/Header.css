@@ -1,14 +1,14 @@
 .header {
   display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 .header_right {
-  margin-left: 42rem;
   display: flex;
   align-items: center;
 }
-.header_right_link {
+/*.header_right_link {
   margin: 1rem;
   font-size: large;
-  text-decoration: none;
-  
-}
+  text-decoration: none;  
+}*/
