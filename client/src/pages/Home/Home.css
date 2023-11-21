@@ -79,3 +79,61 @@ h1 {
   align-items: center;
   justify-content: center;
 } */
+.Category_area h1{
+  text-align: center;
+}
+
+.Home_Category{
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(360px,1fr));
+  gap: 20px;
+  text-decoration: none;
+}
+
+.Home_Category_Div{
+  padding: 5px;
+  overflow: hidden;
+  height: 450px;
+  width: 380px;
+  background-color: rgba(225, 226, 227, 0.567);
+  border-radius: 9px;
+}
+
+.Home_Category_Div img{
+  height: 80%;
+  width: 99.5%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 0px solid rgba(94, 94, 94, 0.968);
+}
+
+.Home_Category_Div_text{
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-style: none;
+}
+
+.Service_Bottom{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+.Service_Bottom button{
+  max-height: 80%;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: rgb(96, 170, 248);
+  font-weight: bold;
+  transition: ease-in 0.3s;
+}
+.Service_Bottom button:hover{
+  transition: ease-out 0.3s;
+  transform: scale(1.1);
+  background-color: rgb(67, 145, 228);
+  box-shadow: 10px 10px 10px rgba(149, 149, 149, 0.667);
+}

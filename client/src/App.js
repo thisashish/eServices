@@ -3,6 +3,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 ////file
+import {css} from "./App.css";
 import { C } from "./pages/C/C";
 import { PageNotFound } from "./pages/PageNotFound/PageNotFound";
 import Home from "./pages/Home/Home";
@@ -10,12 +11,13 @@ import { AD } from "./pages/AD/AD";
 import { SPRegistration } from "./pages/SP/SPRegistration";
 import { D } from "./pages/SP/D";
 import { SPLogin } from "./pages/SP/SPLogin";
+import UploadProfilePic from "./pages/SPD/UploadProfilePic";
 
 //code
 export const App = () => {
   return (
     <BrowserRouter>
-      <>
+      <div className="webPageBody">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
@@ -28,8 +30,9 @@ export const App = () => {
           <Route path="/:slug/:slug" element={<C />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/admin/dashboard" element={<AD />} />
+          <Route path="service/provider/profile" element={<UploadProfilePic/>} /> 
         </Routes>
-      </>
+      </div>
     </BrowserRouter>
   );
 };

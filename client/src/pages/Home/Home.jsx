@@ -32,19 +32,24 @@ const Home = () => {
         <HomeHeader />
       </div>
       {L.includes(slug) ? (
-        <div>
+        <div className="Category_area">
           <h1>Categories</h1>
           <div className="Home_Category">
             {c.map((c) =>
               c.locations.includes(slug) ? (
                 <div className="Home_Category_Div" key={c.name}>
-                  <Link to={`/${slug}/${c.name}`}>
+                  <Link style={{textDecoration: 'none'}} to={`/${slug}/${c.name}`}>
                     <img
                       className="Home_Category_Div_Img"
                       src={c.img}
                       alt={c.name}
                     />
-                    <p>{c.name}</p>
+                    <div className="Service_Bottom">
+                      <p className="Home_Category_Div_text">{c.name}</p>
+                      <button>
+                        SCHEDULE
+                      </button>
+                    </div>
                   </Link>
                 </div>
               ) : (
