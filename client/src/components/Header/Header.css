@@ -10,5 +10,34 @@
 /*.header_right_link {
   margin: 1rem;
   font-size: large;
+
+  text-decoration: none;
+  
+}
+
+@media screen and (max-width: 1200px) {
+  .header_left_img {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header_left,
+  .header_right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header_left_img {
+    max-width: 100%;
+  }
+}
+
   text-decoration: none;  
 }*/
+
