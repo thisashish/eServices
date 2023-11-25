@@ -7,6 +7,9 @@
   display: flex;
   align-items: center;
 }
+.select{
+  width:10px;
+}
 /*.header_right_link {
   margin: 1rem;
   font-size: large;

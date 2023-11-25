@@ -2,11 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { ULoginSignupPopup } from "./ULoginSignupPopup";
 import axios from "axios";
+import {Link,NavLink,useNavigate} from "react-router-dom"
+import Profile from "../../pages/Profile/Profile";
+// import Profile from "../../pages/Profile/Profile";
+// import Select from "react-select"
 
 export const Header = () => {
+  // let his=useHistory();
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [loginuser, setLoginuser] = useState([]);
-
+  const [selected, setSelected] = useState("{loginuser.fname}");
+  const navigate=useNavigate();
   const openPopup = () => {
     setPopupVisible(true);
   };
@@ -14,6 +20,7 @@ export const Header = () => {
   const closePopup = () => {
     setPopupVisible(false);
   };
+  
   useEffect(() => {
     const userlogin = async () => {
       const user = await axios.get("/U/find/one", {
@@ -47,12 +54,22 @@ export const Header = () => {
         "Content-Type": "application/json",
       },
     });
+    
 
     if (res.status === 200) {
       window.location.href = "/";
     } else {
     }
+
   };
+  function handleChange(value){
+    setSelected(value);
+   navigate(`${value}`);
+   if (value === '/logout') {
+    handlelogout();
+  }
+   value="";
+   }
   return (
     <div className="header">
       <div className="header_left">
@@ -69,10 +86,24 @@ export const Header = () => {
         <a href="/contact" className="header_right_link">
           Contact Us
         </a>
+        
         {loginuser.length !== 0 ? (
-          <>
-            <p>{loginuser.fname}</p>
-            <button onClick={handlelogout}>Logout</button>
+          <> 
+          {/* <Link to="/profile">{loginuser.fname}</Link> */}
+            <select  value={selected} onChange={(e)=>handleChange(e.target.value)}>
+             <option value ="/profile">{loginuser.fname}</option>
+              <option value="/more">More</option>
+              <option value="/profile">
+                About</option>
+                <option value="/logout">
+                logout</option>
+
+                
+                
+            </select>
+            {selected=="{loginuser.fname}"?<NavLink to="/profile"></NavLink>:""}
+            {/* <button onClick={handlelogout}>Logout</button> */}
+            
           </>
         ) : (
           <button className="header_right_link" onClick={openPopup}>
