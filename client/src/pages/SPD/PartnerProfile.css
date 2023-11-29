@@ -84,7 +84,7 @@
     height: 30px;
 }
 
-label {
+.circular-input label{
     display: block;
     padding: 10px;
     /* background-color: #3498db; */

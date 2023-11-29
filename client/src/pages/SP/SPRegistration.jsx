@@ -144,7 +144,7 @@ export const SPRegistration = () => {
               type="password"
               onChange={(e) => handleTextChange("confirmpass", e.target.value)}
             />
-            <select
+            <select className="SPRegistration_select"
               multiple
               onChange={handleLocationChange}
               value={formState.location}
@@ -156,7 +156,7 @@ export const SPRegistration = () => {
                 </option>
               ))}
             </select>
-            <select
+            <select className="SPRegistration_select"
               multiple
               onChange={handleCategoryChange}
               value={formState.category}
@@ -168,7 +168,7 @@ export const SPRegistration = () => {
                 </option>
               ))}
             </select>
-            <button type="submit" onClick={handleSubmit}>
+            <button className="SPRegistration_button" type="submit" onClick={handleSubmit}>
               Submit
             </button>
           </div>
