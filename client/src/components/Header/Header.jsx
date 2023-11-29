@@ -8,11 +8,18 @@ import Profile from "../../pages/Profile/Profile";
 // import Select from "react-select"
 
 export const Header = () => {
+
+  const [isMenuVisible,setMenuVisible] = useState(true);
+  const [loginuser, setLoginuser] = useState([]);
+  let isMobile = window.innerWidth <= 768 ;
+
+
   // let his=useHistory();
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [loginuser, setLoginuser] = useState([]);
   const [selected, setSelected] = useState("{loginuser.fname}");
   const navigate=useNavigate();
+
   const openPopup = () => {
     setPopupVisible(true);
   };
@@ -80,6 +87,63 @@ export const Header = () => {
         />
       </div>
       <div className="header_right">
+
+
+        {isMobile ?
+            <button onClick={()=>setMenuVisible(!isMenuVisible)} className="menu_button">Menu</button>
+         : 
+          <div>
+            <a href="/service-provider/register" className="header_right_link">
+              Join as Service Provider
+            </a>
+            <a href="/contact" className="header_right_link">
+              Contact Us
+            </a>
+            {loginuser.length !== 0 ? (
+              <>
+                <p>{loginuser.fname}</p>
+                <button onClick={handlelogout}>Logout</button>
+              </>
+            ) : (
+              <button 
+                className="header_right_link"
+                onClick={openPopup}
+              >
+                Log in
+              </button>
+            )}
+          </div>
+        }
+        <div hidden={isMenuVisible} className="menu_list_area">
+          <ul>
+            <li>
+              <a href="/service-provider/register" >
+                Join as Service Provider
+              </a>
+            </li>
+            <li>
+              <a href="/contact">
+                Contact Us
+              </a>
+            </li>
+            <li>
+              {loginuser.length !== 0 ? (
+                <>
+                  <p>{loginuser.fname}</p>
+                  <button onClick={handlelogout}>Logout</button>
+                </>
+              ) : (
+                <button 
+                  onClick={openPopup}
+                >
+                  Log in
+                </button>
+              )}
+            </li>
+          </ul>
+          {isPopupVisible && <ULoginSignupPopup onClose={closePopup} />}
+        </div>
+
         <a href="/service-provider/register" className="header_right_link">
           Join as Service Provider
         </a>
@@ -111,6 +175,7 @@ export const Header = () => {
           </button>
         )}
         {isPopupVisible && <ULoginSignupPopup onClose={closePopup} />}
+
         {/* <Auth /> */}
       </div>
     </div>

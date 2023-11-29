@@ -2,11 +2,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Roboto+Slab:wght@500&display=swap");
 .category-location-box {
-  margin-right: 32%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Spread items horizontally */
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(500px,1fr));
+  gap: 10px;
 }
 
 /* Category box styles */

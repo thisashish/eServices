@@ -45,7 +45,7 @@ padding-top: 19px;
   font-size: 16px;
 }
 
-select {
+.SPRegistration_select {
   width: 100%;
   padding: 10px;
   margin: 5px 0;
@@ -57,7 +57,7 @@ select {
     font-weight: bold;
 }
 
-button {
+.SPRegistration_button {
   margin-top: 13px;
     background-color: #007bff;
     color: #fff;
@@ -68,7 +68,7 @@ button {
     font-size: 17px;
 }
 
-button:hover {
+.SPRegistration_button:hover {
   background-color: #0056b3;
 }
 
