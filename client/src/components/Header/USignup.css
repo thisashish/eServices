@@ -1,19 +1,21 @@
- .USignup{
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 420px;
-  box-shadow: 0 -5px -5px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 25px;
-  /* border: 1px solid black; */
-  text-align: center;
-  } 
 
+  .USignup
+  {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 420px;
+    box-shadow: 0 -5px -5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    /* border: 1px solid black; */
+    text-align: center;
+  }
 .USignup_heading_h1{
   font-size:36px;
   text-align:center;
+  font-weight: bold;
 }
 .USignup_heading_p{
 font-size:14.5px;
@@ -101,12 +103,26 @@ position: relative;
 .USignup_form_password_showpass_eye {
   position: absolute;
   right: 6rem;
-  bottom: 10.5rem;
+  bottom: 11.5rem;
   right : 5rem;
 } 
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media screen and (max-width: 1200px) {
+  .USignup_form_input,
+  .USignup_form_btn {
+    width: 70%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .USignup {
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .USignup_form_input,
+  .USignup_form_btn {
+    width: 90%;
+  }
+}
+

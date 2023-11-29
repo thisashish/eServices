@@ -12,6 +12,8 @@ import { SPRegistration } from "./pages/SP/SPRegistration";
 import { D } from "./pages/SP/D";
 import { SPLogin } from "./pages/SP/SPLogin";
 import UploadProfilePic from "./pages/SPD/UploadProfilePic";
+import Profile from "./pages/Profile/Profile";
+import More from "./pages/Profile/More";
 
 //code
 export const App = () => {
@@ -24,6 +26,9 @@ export const App = () => {
             path="/service-provider/register"
             element={<SPRegistration />}
           />
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/more" element={<More/>}/>
+          {/* <Route path="/logout" element={<Logout/>}/> */}
           <Route path="/service-provider/dashboard" element={<D />} />
           <Route path="/service-provider/login" element={<SPLogin />} />
           <Route path="/:slug" element={<Home />} />

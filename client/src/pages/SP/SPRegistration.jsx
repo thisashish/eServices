@@ -4,7 +4,7 @@ import { L } from "../Home/Utils";
 import useReduserfun from "../SPForm/useReduserfun";
 import { initialState } from "./Utils";
 import axios from "axios";
-// import "./SPRegistration.css";
+import "./SPRegistration.css";
 import { SPOtpVerify } from "./SPOtpVerify";
 
 export const SPRegistration = () => {
@@ -105,7 +105,8 @@ export const SPRegistration = () => {
       {showOtpElement ? (
         <SPOtpVerify data={formState} />
       ) : (
-        <div className="SPRegistration1">
+        <div className="SPRegistration1" >
+           
           <h1 className="heading">Join Us as a Service-Provider</h1>
 
           <div className="SPRegistration">

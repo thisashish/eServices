@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=FontName&display=swap');
-
 .ulogin{
   background-color: rgba(0, 0, 0, 0.5);
   width: 420px;
@@ -11,27 +10,12 @@
   border-radius: 25px;
   /* border: 1px solid black; */
   text-align: center;
-}
-
-/*
- .ulogin {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally 
-  justify-content: center;/* Center items vertically 
-  width: 420px;
-  /*background: purple;
-   background-color: rgba(0, 0, 0, 0.5); 
-   box-shadow: inset -5px -5px rgba(0, 0, 0, 0.5);
-  /* border-radius: 10px; */
-  /* padding: 30px 40px; 
-  } 
-  */
-  
+}y
   
 .ulogin h1{
     font-size:36px;
     text-align:center;
+    font-weight: bold;
 }
 .ulogin p{
   font-size:14.5px;
@@ -107,9 +91,13 @@
 }
 
 .ulogin p a{
+
+    color :#fff;
+
     
   
   color-interpolation-filters:#fff;
+
     text-decoration:none;
     font-weight:600;
 }
@@ -118,6 +106,26 @@
     text-decoration:underline;
 
 }
+
+@media screen and (max-width: 1200px) {
+  .ULogin_form_input,
+  .ULogin_btn {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ulogin {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ULogin_form_input,
+  .ULogin_btn {
+    width: 90%;
+  }
+}
+
 
 
 
