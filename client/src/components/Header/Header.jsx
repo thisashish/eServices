@@ -16,7 +16,7 @@ export const Header = () => {
 
   // let his=useHistory();
   const [isPopupVisible, setPopupVisible] = useState(false);
-  const [loginuser, setLoginuser] = useState([]);
+  
   const [selected, setSelected] = useState("{loginuser.fname}");
   const navigate=useNavigate();
 
@@ -81,7 +81,7 @@ export const Header = () => {
     <div className="header">
       <div className="header_left">
         <img
-          src={process.env.PUBLIC_URL + "/images/banner-all.png"}
+          src={process.env.PUBLIC_URL + "/images/image.png"}
           style={{ width: "150px", height: "80px" }}
           className="header_left_img"
         />
