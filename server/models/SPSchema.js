@@ -1,14 +1,18 @@
 import { Schema, model } from "mongoose";
 
 const SPSchema = new Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: false },
   address: { type: String },
-  phoneno: { type: String, required: true },
+  phoneno: { type: String, required: false },
   email: { type: String },
-  password: { type: String, required: true },
-  token: { type: String, required: true },
+  password: { type: String, required: false },
+  token: { type: String, required: false },
   locations: [{ type: String }],
   categories: [{ type: String }],
+  img: {
+    type: String,
+    required: false, // Adjusted from 'require' to 'required'
+  },
   review: [
     {
       userid: String,
@@ -19,6 +23,6 @@ const SPSchema = new Schema({
   transactions: [{ type: String, amount: Number }],
 });
 
-const SP = model("serviceproviders", SPSchema);
+const SP = model("ServiceProviders", SPSchema); // Adjusted model name to 'ServiceProviders'
 
 export default SP;

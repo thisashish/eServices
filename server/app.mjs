@@ -15,6 +15,7 @@ import URoutes from "./Routes/User/URoutes.js";
 import category from "./models/CSchema.js";
 import CFind from "./Routes/C/CFind.js";
 import CAdd from "./Routes/C/CAdd.js";
+import CDelete from "./Routes/C/CDelete.js";
 
 import "./config/conn.js";
 
@@ -40,15 +41,15 @@ app.use(cookies());
 app.use("/U", URoutes);
 app.use("/service/provider", SPDashboard);
 
+
 app.use("/SP/add", SPAdd);
 app.use("/SP/login", SPLogin);
 app.use("/SP/find", SPFind);
+
 app.use("/C/find", CFind);
 app.use("/C/add", CAdd);
+app.use("/C/delete",CDelete);
 
-app.get("/profile", async (req, res) => {
-  res.send(await category.find());
-});
 
 //server
 app.listen(4001, () => {

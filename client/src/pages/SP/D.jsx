@@ -17,9 +17,11 @@ import axios from "axios";
 import UploadProfilePic from "../SPD/UploadProfilePic";
 
 
+
 import CSS from "./D.css"
 
 export const D = () => {
+  
   const [SPdata, setSPdata] = useState([]);
   const [selectedService, setSelectedService] = useState(null);
   useEffect(() => {
@@ -63,7 +65,8 @@ export const D = () => {
         <button className="log-out-button" onClick={handleLogout}>Logout</button>
       </div>  
       <PartnerProfile />
-      <ShowProfile />
+      {/* <ShowProfile /> */}
+      
 
       <div className="service-options-style">
         <div className="service-option">

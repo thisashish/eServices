@@ -1,14 +1,17 @@
-import axios from "axios";
+import axios, { all } from "axios";
 import { useEffect, useState } from "react";
 
 export const SPFindall = async () => {
   const [allSP, setAllSP] = useState([]);
   useEffect(() => {
-    const hi = async () => {
-      const data = await axios.get("/SP/find/all");
-      setAllSP(data.data);
+    const allSP = async () => {
+      const allSP1 = await axios.get("/SP/find/one");
+      setAllSP(allSP1.data);
     };
-    hi();
+    allSP();
   }, []);
   return allSP;
 };
+
+
+

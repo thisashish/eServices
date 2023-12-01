@@ -3,7 +3,18 @@ import { FindC } from "../../../API/C/FindC";
 import { DeleteC } from "../../../API/C/DeleteC";
 
 export const ShowC = () => {
+  const [cList, setCList] = useState([]);
   const c = FindC();
+  const handleDelete = async (id) => {
+    try {
+      await DeleteC(id);
+      // If successful, update the state by filtering out the deleted item
+      setCList(cList.filter((c) => c._id !== id));
+    } catch (error) {
+      console.error("Error deleting C:", error);
+    }
+  };
+
   return (
     <div>
       <table>
@@ -34,7 +45,7 @@ export const ShowC = () => {
                 </ul>
               </td>
               <td>
-                <button onClick={() => DeleteC(c._id)}>Delete</button>
+                <button onClick={() => handleDelete(c._id)}>Delete</button>
               </td>
             </tr>
           ))}
